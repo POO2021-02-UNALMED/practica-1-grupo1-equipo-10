@@ -12,6 +12,7 @@ public class Contrato {
     private Date fecha_fin;
     private Inmueble inmueble;
     private Inquilino inquilino;
+    private boolean estado;
 
     //falta constructor
 
@@ -65,14 +66,21 @@ public class Contrato {
         this.inquilino = inquilino;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     //fin getter and setter
 
     public void mostrar_contrato(){}
 
-    public void renovarFecha_fin(){}
+    public void renovar_fecha_fin(){}
 
-    public void editarFecha_fin(){}
+    public void editar_fecha_fin(){}
 
-    public void notificarCierreContrato(){}
+    public void notificar_cierre_contrato(){}
 }

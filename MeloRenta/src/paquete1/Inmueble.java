@@ -1,6 +1,7 @@
 package paquete1;
 
 import paquete2.Inquilino;
+import paquete2.Contrato;
 
 public class Inmueble {
     public double id;
@@ -10,10 +11,12 @@ public class Inmueble {
     private int numero_habitaciones;
     private int numero_baños;
     private boolean balcon;
+    private boolean patio;
     private boolean cuarto_util;
     private int parqueadero;
-    private String estado_inmueble;
-    private Inquilino inquilino;
+    private String estado_fisico_inmueble;
+    private Contrato contrato;
+    private boolean estado_arriendo_inmueble;
 
     //falta constructor
 
@@ -93,14 +96,33 @@ public class Inmueble {
         this.parqueadero = parqueadero;
     }
 
-    public String getEstado_inmueble() {
-        return estado_inmueble;
+    public String getEstado_fisico_inmueble() {
+        return estado_fisico_inmueble;
     }
 
-    public Inquilino getInquilino() {
-        return inquilino;
+    public boolean isPatio() {
+        return patio;
     }
 
+    public void setPatio(boolean patio) {
+        this.patio = patio;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    public boolean isEstado_arriendo_inmueble() {
+        return estado_arriendo_inmueble;
+    }
+
+    public void setEstado_arriendo_inmueble(boolean estado_arriendo_inmueble) {
+        this.estado_arriendo_inmueble = estado_arriendo_inmueble;
+    }
 
     //fin getter and setter
 
@@ -109,15 +131,7 @@ public class Inmueble {
 
     public void consultar_estado(){}
 
-    public void consultar_inquilino(){}
-
-    public void setEstado_inmueble(String estado_inmueble){}
-
-    public void setInquilino(Inquilino inquilino){}
-
-    /*los metodos setInmbueble y setInquilino podrian sobrar ya que hacen parte
-    de los metodos setter y getter
-    */
+    public void consultar_contrato(){}
 
     /*
         propongo crear dentro de esta clase el metodo toString() para que las clases que heredan de el

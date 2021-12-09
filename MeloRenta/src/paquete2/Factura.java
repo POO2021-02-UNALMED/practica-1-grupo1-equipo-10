@@ -3,6 +3,7 @@ package paquete2;
 public class Factura {
     private double id;
     private boolean estado;
+    private Contrato contrato;
 
     //falta constructor
 
@@ -24,13 +25,21 @@ public class Factura {
         this.estado = estado;
     }
 
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
     //fin getter and setter
 
 
-    public void notificarPagoCompletado(){}
+    public void notificar_pago_completado(){}
 
-    public void calenadioPago(){}
+    public void calenadio_pago(){}
 
-    public void calcularFechasPago(){}
+    public void calcular_fechas_pago(){}
 
 }

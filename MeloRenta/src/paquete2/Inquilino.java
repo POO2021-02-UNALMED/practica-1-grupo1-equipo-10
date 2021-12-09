@@ -9,6 +9,7 @@ public class Inquilino {
     private Date fecha_nacimiento;
     private String telefono;
     private String correo;
+    private Contrato contrato;
 
     //falta constructor
 
@@ -62,6 +63,13 @@ public class Inquilino {
         this.correo = correo;
     }
 
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
 
     //fin getter and setter
 
