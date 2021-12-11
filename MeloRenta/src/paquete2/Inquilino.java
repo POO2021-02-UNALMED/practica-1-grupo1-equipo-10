@@ -11,7 +11,18 @@ public class Inquilino {
     private String correo;
     private Contrato contrato;
 
-    //falta constructor
+    public Inquilino(String documento_identidad, String nombre_completo,
+                     String genero, Date fecha_nacimiento, String telefono,
+                     String correo, Contrato contrato) {
+
+        this.documento_identidad = documento_identidad;
+        this.nombre_completo = nombre_completo;
+        this.genero = genero;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.contrato = contrato;
+    }
 
     //getter and setter
 
@@ -78,4 +89,7 @@ public class Inquilino {
     public void calendarioPago(){}
 
     public void calcularFechasPago(){}
+
+
+    //falta el metodo toString
 }

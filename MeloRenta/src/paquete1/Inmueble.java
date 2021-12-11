@@ -1,10 +1,11 @@
 package paquete1;
 
-import paquete2.Inquilino;
 import paquete2.Contrato;
 
-public class Inmueble {
-    public double id;
+import java.util.ArrayList;
+
+public abstract class Inmueble {
+    private double id;
     private String direccion;
     private int canon;
     private int tamaño;
@@ -14,15 +15,48 @@ public class Inmueble {
     private boolean patio;
     private boolean cuarto_util;
     private int parqueadero;
-    private String estado_fisico_inmueble;
+    private boolean estado_fisico_inmueble;
     private Contrato contrato;
     private boolean estado_arriendo_inmueble;
+    private ArrayList<Contrato> historial_contratos;
 
-    //falta constructor
-
+    public Inmueble(double id, String direccion, int canon, int tamaño, int numero_habitaciones,
+                    int numero_baños, boolean balcon, boolean patio, boolean cuarto_util, int parqueadero,
+                    boolean estado_fisico_inmueble, Contrato contrato, boolean estado_arriendo_inmueble) {
+        this.id = id;
+        this.direccion = direccion;
+        this.canon = canon;
+        this.tamaño = tamaño;
+        this.numero_habitaciones = numero_habitaciones;
+        this.numero_baños = numero_baños;
+        this.balcon = balcon;
+        this.patio = patio;
+        this.cuarto_util = cuarto_util;
+        this.parqueadero = parqueadero;
+        this.estado_fisico_inmueble = estado_fisico_inmueble;
+        this.contrato = contrato;
+        this.estado_arriendo_inmueble = estado_arriendo_inmueble;
+    }
 
 
     //getter and setter
+
+
+    public ArrayList<Contrato> getHistorial_contratos() {
+        return historial_contratos;
+    }
+
+    public void setHistorial_contratos(ArrayList<Contrato> historial_contratos) {
+        this.historial_contratos = historial_contratos;
+    }
+
+    public boolean isEstado_fisico_inmueble() {
+        return estado_fisico_inmueble;
+    }
+
+    public void setEstado_fisico_inmueble(boolean estado_fisico_inmueble) {
+        this.estado_fisico_inmueble = estado_fisico_inmueble;
+    }
 
     public double getId() {
         return id;
@@ -96,7 +130,7 @@ public class Inmueble {
         this.parqueadero = parqueadero;
     }
 
-    public String getEstado_fisico_inmueble() {
+    public boolean getEstado_fisico_inmueble() {
         return estado_fisico_inmueble;
     }
 
@@ -127,14 +161,44 @@ public class Inmueble {
     //fin getter and setter
 
 
-    public void recordar_reparacion(){}
+    public String recordar_reparacion(){
+        if(getEstado_fisico_inmueble()){
+            return "El inmueble necesita reparacion";
+        } else {
+            return "El inmueble no necesita reparacion";
+        }
+    }
 
-    public void consultar_estado(){}
+    public String consultar_estado(){
+        if (isEstado_arriendo_inmueble()){
+            return "El inmueble se encuentra arrendado";
+        } else {
+            return "El inmueble no se encuentra arrendado";
+        }
+    }
 
-    public void consultar_contrato(){}
+    public ArrayList<String> historial_de_contratos(){
+        ArrayList<String> listadoContrato = new ArrayList<>();
+
+        for (Contrato contrato: getHistorial_contratos()) {
+            listadoContrato.add(contrato.toString());
+        }
+        return listadoContrato;
+    }
+
+    public abstract String mostrarInmueble();
+
 
     /*
-        propongo crear dentro de esta clase el metodo toString() para que las clases que heredan de el
-        tambien lo implementen y que cada una lo modifique a su manera
+        Estado_fisico se encarga de definir el "estado fisico" del inmueble, si esta malo o no.
+
+        True = No necesita reparacion
+        False = Necesita reparacion
+
+
+        Estado_arriendo_inmueble se encarga de definir si el inmueble esta arrendado o no
+
+        True = esta arrendado
+        False = no esta arrendado
     */
 }

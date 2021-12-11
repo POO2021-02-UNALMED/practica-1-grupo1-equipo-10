@@ -14,7 +14,16 @@ public class Contrato {
     private Inquilino inquilino;
     private boolean estado;
 
-    //falta constructor
+    public Contrato(double id, File clausula, Date fecha_inicio, Date fecha_fin,
+                    Inmueble inmueble, Inquilino inquilino, boolean estado) {
+        this.id = id;
+        this.clausula = clausula;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+        this.inmueble = inmueble;
+        this.inquilino = inquilino;
+        this.estado = estado;
+    }
 
     //getter and setter
 
@@ -83,4 +92,18 @@ public class Contrato {
     public void editar_fecha_fin(){}
 
     public void notificar_cierre_contrato(){}
+
+
+    @Override
+    public String toString() {
+        return "Contrato{" +
+                "id=" + id +
+                ", clausula=" + clausula +
+                ", fecha_inicio=" + fecha_inicio +
+                ", fecha_fin=" + fecha_fin +
+                ", inmueble=" + inmueble +
+                ", inquilino=" + inquilino +
+                ", estado=" + estado +
+                '}';
+    }
 }

@@ -5,7 +5,11 @@ public class Factura {
     private boolean estado;
     private Contrato contrato;
 
-    //falta constructor
+    public Factura(double id, boolean estado, Contrato contrato) {
+        this.id = id;
+        this.estado = estado;
+        this.contrato = contrato;
+    }
 
     //getter and setter
 
@@ -41,5 +45,7 @@ public class Factura {
     public void calenadio_pago(){}
 
     public void calcular_fechas_pago(){}
+
+    //falta el metodo toString
 
 }
