@@ -8,54 +8,54 @@ public abstract class Inmueble {
     private double id;
     private String direccion;
     private int canon;
-    private int tamaño;
-    private int numero_habitaciones;
-    private int numero_baños;
+    private int tamano;
+    private int numeroHabitaciones;
+    private int numeroBanos;
     private boolean balcon;
     private boolean patio;
-    private boolean cuarto_util;
+    private boolean cuartoUtil;
     private int parqueadero;
-    private boolean estado_fisico_inmueble;
+    private boolean estadoFisicoInmueble;
     private Contrato contrato;
-    private boolean estado_arriendo_inmueble;
-    private ArrayList<Contrato> historial_contratos;
+    private boolean estadoArriendoInmueble;
+    private ArrayList<Contrato> historialContratos;
 
-    public Inmueble(double id, String direccion, int canon, int tamaño, int numero_habitaciones,
-                    int numero_baños, boolean balcon, boolean patio, boolean cuarto_util, int parqueadero,
-                    boolean estado_fisico_inmueble, Contrato contrato, boolean estado_arriendo_inmueble) {
+    public Inmueble(double id, String direccion, int canon, int tamano, int numeroHabitaciones,
+                    int numeroBanos, boolean balcon, boolean patio, boolean cuartoUtil, int parqueadero,
+                    boolean estadoFisicoInmueble, Contrato contrato, boolean estadoArriendoInmueble) {
         this.id = id;
         this.direccion = direccion;
         this.canon = canon;
-        this.tamaño = tamaño;
-        this.numero_habitaciones = numero_habitaciones;
-        this.numero_baños = numero_baños;
+        this.tamano = tamano;
+        this.numeroHabitaciones = numeroHabitaciones;
+        this.numeroBanos = numeroBanos;
         this.balcon = balcon;
         this.patio = patio;
-        this.cuarto_util = cuarto_util;
+        this.cuartoUtil = cuartoUtil;
         this.parqueadero = parqueadero;
-        this.estado_fisico_inmueble = estado_fisico_inmueble;
+        this.estadoFisicoInmueble = estadoFisicoInmueble;
         this.contrato = contrato;
-        this.estado_arriendo_inmueble = estado_arriendo_inmueble;
+        this.estadoArriendoInmueble = estadoArriendoInmueble;
     }
 
 
     //getter and setter
 
 
-    public ArrayList<Contrato> getHistorial_contratos() {
-        return historial_contratos;
+    public ArrayList<Contrato> getHistorialContratos() {
+        return historialContratos;
     }
 
-    public void setHistorial_contratos(ArrayList<Contrato> historial_contratos) {
-        this.historial_contratos = historial_contratos;
+    public void setHistorialContratos(ArrayList<Contrato> historialContratos) {
+        this.historialContratos = historialContratos;
     }
 
-    public boolean isEstado_fisico_inmueble() {
-        return estado_fisico_inmueble;
+    public boolean isEstadoFisicoInmueble() {
+        return estadoFisicoInmueble;
     }
 
-    public void setEstado_fisico_inmueble(boolean estado_fisico_inmueble) {
-        this.estado_fisico_inmueble = estado_fisico_inmueble;
+    public void setEstadoFisicoInmueble(boolean estadoFisicoInmueble) {
+        this.estadoFisicoInmueble = estadoFisicoInmueble;
     }
 
     public double getId() {
@@ -82,28 +82,28 @@ public abstract class Inmueble {
         this.canon = canon;
     }
 
-    public int getTamaño() {
-        return tamaño;
+    public int getTamano() {
+        return tamano;
     }
 
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
+    public void setTamano(int tamano) {
+        this.tamano = tamano;
     }
 
-    public int getNumero_habitaciones() {
-        return numero_habitaciones;
+    public int getNumeroHabitaciones() {
+        return numeroHabitaciones;
     }
 
-    public void setNumero_habitaciones(int numero_habitaciones) {
-        this.numero_habitaciones = numero_habitaciones;
+    public void setNumeroHabitaciones(int numeroHabitaciones) {
+        this.numeroHabitaciones = numeroHabitaciones;
     }
 
-    public int getNumero_baños() {
-        return numero_baños;
+    public int getNumeroBanos() {
+        return numeroBanos;
     }
 
-    public void setNumero_baños(int numero_baños) {
-        this.numero_baños = numero_baños;
+    public void setNumeroBanos(int numeroBanos) {
+        this.numeroBanos = numeroBanos;
     }
 
     public boolean isBalcon() {
@@ -114,12 +114,12 @@ public abstract class Inmueble {
         this.balcon = balcon;
     }
 
-    public boolean isCuarto_util() {
-        return cuarto_util;
+    public boolean isCuartoUtil() {
+        return cuartoUtil;
     }
 
-    public void setCuarto_util(boolean cuarto_util) {
-        this.cuarto_util = cuarto_util;
+    public void setCuartoUtil(boolean cuartoUtil) {
+        this.cuartoUtil = cuartoUtil;
     }
 
     public int getParqueadero() {
@@ -130,8 +130,8 @@ public abstract class Inmueble {
         this.parqueadero = parqueadero;
     }
 
-    public boolean getEstado_fisico_inmueble() {
-        return estado_fisico_inmueble;
+    public boolean getEstadoFisicoInmueble() {
+        return estadoFisicoInmueble;
     }
 
     public boolean isPatio() {
@@ -150,37 +150,37 @@ public abstract class Inmueble {
         this.contrato = contrato;
     }
 
-    public boolean isEstado_arriendo_inmueble() {
-        return estado_arriendo_inmueble;
+    public boolean isEstadoArriendoInmueble() {
+        return estadoArriendoInmueble;
     }
 
-    public void setEstado_arriendo_inmueble(boolean estado_arriendo_inmueble) {
-        this.estado_arriendo_inmueble = estado_arriendo_inmueble;
+    public void setEstadoArriendoInmueble(boolean estadoArriendoInmueble) {
+        this.estadoArriendoInmueble = estadoArriendoInmueble;
     }
 
     //fin getter and setter
 
 
-    public String recordar_reparacion(){
-        if(getEstado_fisico_inmueble()){
+    public String recordarReparacion(){
+        if(getEstadoFisicoInmueble()){
             return "El inmueble necesita reparacion";
         } else {
             return "El inmueble no necesita reparacion";
         }
     }
 
-    public String consultar_estado(){
-        if (isEstado_arriendo_inmueble()){
+    public String consultarEstado(){
+        if (isEstadoArriendoInmueble()){
             return "El inmueble se encuentra arrendado";
         } else {
             return "El inmueble no se encuentra arrendado";
         }
     }
 
-    public ArrayList<String> historial_de_contratos(){
+    public ArrayList<String> historialDeContratos(){
         ArrayList<String> listadoContrato = new ArrayList<>();
 
-        for (Contrato contrato: getHistorial_contratos()) {
+        for (Contrato contrato: getHistorialContratos()) {
             listadoContrato.add(contrato.toString());
         }
         return listadoContrato;
