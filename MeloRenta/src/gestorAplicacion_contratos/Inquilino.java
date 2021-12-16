@@ -1,4 +1,4 @@
-package paquete2;
+package gestorAplicacion_contratos;
 
 import java.util.Date;
 

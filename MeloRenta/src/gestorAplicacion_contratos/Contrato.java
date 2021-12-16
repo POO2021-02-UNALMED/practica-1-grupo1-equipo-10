@@ -1,10 +1,10 @@
-package paquete2;
-
-import paquete1.Inmueble;
+package gestorAplicacion_contratos;
 
 import java.io.File;
 import java.time.LocalDate;
 import java.util.Date;
+
+import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Contrato {
     private double id;

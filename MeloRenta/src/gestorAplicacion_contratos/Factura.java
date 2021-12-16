@@ -1,7 +1,8 @@
-package paquete2;
+package gestorAplicacion_contratos;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 public class Factura {
     private double id;
     private boolean estado;
