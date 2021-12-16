@@ -2,8 +2,7 @@ package gestorAplicacion_contratos;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.Date;
-
+import java.util.*;
 import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Contrato {
@@ -14,6 +13,27 @@ public class Contrato {
     private Inmueble inmueble;
     private Inquilino inquilino;
     private boolean estado;
+    
+    //inicio serializacion        
+    private static LinkedList<Contrato> contratos = new LinkedList<Contrato>();
+       
+    
+    public static LinkedList<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public static void adicionarContrato(Contrato Contrato) {
+		contratos.add(Contrato);
+	}
+    
+
+	public static void setContratos(LinkedList<Contrato> contratos) {
+		Contrato.contratos = contratos;
+	}
+
+	//fin serialización   
+    
+    
 
     public Contrato(double id, File clausula, LocalDate fecha_inicio, LocalDate fecha_fin,
                     Inmueble inmueble, Inquilino inquilino, boolean estado) {

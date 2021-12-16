@@ -11,6 +11,7 @@ public class Escritor {
 	static File archivo = new File("");
 	private static ObjectOutputStream objectOutputStream;
 	/*Este metodo se ejecuta al cerrar el programa para guardar la base de datos de objetos de cada respectiva clase*/
+	@SuppressWarnings("removal")
 	public static void Escribir() {
 		try {
 			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\vehiculos.txt");

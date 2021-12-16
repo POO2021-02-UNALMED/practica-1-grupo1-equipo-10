@@ -1,12 +1,31 @@
 package gestorAplicacion_contratos;
-import java.time.*;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.time.LocalDate;
+import java.util.*;
 
 public class Factura {
     private double id;
     private boolean estado;
     private Contrato contrato;
+    
+    //inicio serializacion        
+    private static LinkedList<Factura> facturas = new LinkedList<Factura>();
+       
+    
+    public static LinkedList<Factura> getFacturas() {
+		return facturas;
+	}
+
+	public static void adicionarFactura(Factura Factura) {
+		facturas.add(Factura);
+	}
+    
+
+	public static void setFacturas(LinkedList<Factura> facturas) {
+		Factura.facturas = facturas;
+	}
+
+	//fin serialización   
 
     public Factura(double id, boolean estado, Contrato contrato) {
         this.id = id;
@@ -66,7 +85,7 @@ public class Factura {
         return "Factura{" +
                 "id=" + id +
                 ", estado=" + estado +
-                ", contrato=" + contrato +
+                ", Contrato=" + contrato +
                 '}';
     }
 }
