@@ -13,12 +13,12 @@ public class Apartamento extends Inmueble{
 		return apartamentos;
 	}
 
-	public static void adicionarFactura(Apartamento Apartamento) {
+	public static void adicionarApartamento(Apartamento Apartamento) {
 		apartamentos.add(Apartamento);
 	}
     
 
-	public static void setFacturas(LinkedList<Apartamento> apartamentos) {
+	public static void setApartamentos(LinkedList<Apartamento> apartamentos) {
 		Apartamento.apartamentos = apartamentos;
 	}
 

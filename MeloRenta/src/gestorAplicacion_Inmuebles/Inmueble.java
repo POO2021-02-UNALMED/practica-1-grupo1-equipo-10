@@ -1,6 +1,7 @@
 package gestorAplicacion_Inmuebles;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import gestorAplicacion_contratos.Contrato;
 
@@ -19,7 +20,24 @@ public abstract class Inmueble {
     private Contrato contrato;
     private boolean estadoArriendoInmueble;
     private ArrayList<Contrato> historialContratos;
+    //inicio serializacion        
+    private static LinkedList<Inmueble> inmuebles = new LinkedList<Inmueble>();
+       
+    
+    public static LinkedList<Inmueble> getInmuebles() {
+		return inmuebles;
+	}
 
+	public static void adicionarInmueble(Inmueble inmueble) {
+		inmuebles.add(inmueble);
+	}
+    
+
+	public static void setInmuebles(LinkedList<Inmueble> inmuebles) {
+		Inmueble.inmuebles = inmuebles;
+	}
+
+	//fin serialización 
     public Inmueble(double id, String direccion, int canon, int tamano, int numeroHabitaciones,
                     int numeroBanos, boolean balcon, boolean patio, boolean cuartoUtil, int parqueadero,
                     boolean estadoFisicoInmueble, Contrato contrato, boolean estadoArriendoInmueble) {

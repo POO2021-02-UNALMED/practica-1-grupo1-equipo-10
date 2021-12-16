@@ -1,9 +1,30 @@
 package gestorAplicacion_Inmuebles;
 
+import java.util.LinkedList;
+
 import gestorAplicacion_contratos.Contrato;
 
 public class Casa extends Inmueble{
     private int areaAireLibre;
+    
+    //inicio serializacion        
+    private static LinkedList<Casa> casas = new LinkedList<Casa>();
+       
+    
+    public static LinkedList<Casa> getCasas() {
+		return casas;
+	}
+
+	public static void adicionarCasa(Casa casa) {
+		casas.add(casa);
+	}
+    
+
+	public static void setCasas(LinkedList<Casa> casas) {
+		Casa.casas = casas;
+	}
+
+	//fin serialización 
 
     public Casa(double id, String direccion, int canon, int tamano, int numeroHabitaciones,
                 int numeroBanos, boolean balcon, boolean patio, boolean cuartoUtil, int parqueadero,
