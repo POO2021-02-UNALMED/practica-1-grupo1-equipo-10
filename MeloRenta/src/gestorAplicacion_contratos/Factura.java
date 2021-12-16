@@ -8,7 +8,8 @@ public class Factura implements Serializable {
     private boolean estado;
     private Contrato contrato;
     
-    //inicio serializacion        
+    //inicio serializacion     
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Factura> facturas = new LinkedList<Factura>();
        
     

@@ -16,6 +16,7 @@ public class Contrato implements Serializable {
     private boolean estado;
     
     //inicio serializacion        
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Contrato> contratos = new LinkedList<Contrato>();
        
     

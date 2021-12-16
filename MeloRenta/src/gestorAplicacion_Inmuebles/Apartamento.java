@@ -8,7 +8,8 @@ public class Apartamento extends Inmueble implements Serializable {
 	private static ArrayList<Apartamento> listado = new ArrayList<Apartamento>();
     private int numeroDePiso;
     
-    //inicio serializacion        
+    //inicio serializacion     
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Apartamento> apartamentos = new LinkedList<Apartamento>();
        
     

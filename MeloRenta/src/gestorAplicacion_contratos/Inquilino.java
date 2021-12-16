@@ -14,7 +14,8 @@ public class Inquilino implements Serializable {
     private String telefono;
     private String correo;
     private Contrato contrato;
-    //inicio serializacion        
+    //inicio serializacion    
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Inquilino> inquilinos = new LinkedList<Inquilino>();
        
     

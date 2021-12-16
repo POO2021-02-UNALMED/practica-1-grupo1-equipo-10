@@ -21,7 +21,8 @@ public abstract class Inmueble implements Serializable {
     private Contrato contrato;
     private boolean estadoArriendoInmueble;
     private ArrayList<Contrato> historialContratos;
-    //inicio serializacion        
+    //inicio serializacion      
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Inmueble> inmuebles = new LinkedList<Inmueble>();
        
     

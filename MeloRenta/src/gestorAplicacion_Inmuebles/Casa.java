@@ -8,7 +8,8 @@ public class Casa extends Inmueble implements Serializable{
     private int areaAireLibre;
     private static ArrayList<Casa> listado = new ArrayList<Casa>();
     
-    //inicio serializacion        
+    //inicio serializacion    
+    private static final long serialVersionUID = 1L;
     private static LinkedList<Casa> casas = new LinkedList<Casa>();
        
     
