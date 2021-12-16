@@ -1,4 +1,7 @@
 package gestorAplicacion_contratos;
+import java.time.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Factura {
     private double id;
@@ -40,12 +43,30 @@ public class Factura {
     //fin getter and setter
 
 
-    public void notificar_pago_completado(){}
+    
 
-    public void calenadio_pago(){}
+    public void calendario_pago(){
+    	LocalDate finicio= this.contrato.getFecha_inicio();
+    	LocalDate ffin= this.contrato.getFecha_fin();
+    	ArrayList<LocalDate> fechas = new ArrayList<>();
+    	while (true) {
+			if (ffin.isAfter(finicio)) {
+				fechas.add(finicio);
+				finicio.plusDays(30);
+			}else {
+				break;
+			}
+		}
+    }
 
-    public void calcular_fechas_pago(){}
+    
 
     //falta el metodo toString
-
+    public String toString() {
+        return "Factura{" +
+                "id=" + id +
+                ", estado=" + estado +
+                ", contrato=" + contrato +
+                '}';
+    }
 }
