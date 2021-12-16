@@ -105,17 +105,11 @@ public class Contrato implements Serializable {
         this.estado = estado;
     }
 
-    //fin getter and setter
-
-    
+    //fin getter and setter    
 
     public void renovar_contrato(){ //Aqui tomamos la fecha de finalización del contrato y le sumamos 30 días.
     	this.fecha_fin.plusDays(30);
-    }
-    
-    
-    
-    
+    }    
 
     public String notificar_cierre_contrato(){
     	if (this.fecha_fin == (LocalDate.now().plusDays(1))) {

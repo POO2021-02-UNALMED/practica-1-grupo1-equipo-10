@@ -1,6 +1,7 @@
 package uiMain;
-import java.util.Scanner;
+import java.util.*;
 import baseDatos.*;
+import java.time.LocalDate;
 import gestorAplicacion_Inmuebles.*;
 import gestorAplicacion_contratos.*;
 
@@ -33,7 +34,7 @@ public class Main {
 				System.out.println("\nIngrese los siguientes datos, uno por uno, por favor\n");
 				
 				System.out.println("Numero de identificación de su inmueble:\n");
-				double id = sc.nextDouble();
+				double idInmueble = sc.nextDouble();
 				
 				System.out.println("\nDireccion de inmueble:\n");
 				String direccion = sc.next();
@@ -53,21 +54,21 @@ public class Main {
 				System.out.println("\nTiene balcon? (Responder 'Si' o 'No'):\n");
 				boolean balcon = false;
 				String b = sc.next();
-				if(b.equals("Si")) {
+				if(b.equalsIgnoreCase("si")) {
 					balcon = true;
 				}
 				
 				System.out.println("\nTiene patio? (Responder 'Si' o 'No'):\n");
 				boolean patio = false;
 				String p = sc.next();
-				if(p.equals("Si")) {
+				if(p.equalsIgnoreCase("si")) {
 					patio = true;
 				}
 				
 				System.out.println("\nTiene cuarto util? (Responder 'Si' o 'No'):\n");
 				boolean cuartoUtil = false;
 				String c = sc.next();
-				if(c.equals("Si")) {
+				if(c.equalsIgnoreCase("si")) {
 					cuartoUtil = true;
 				}
 				
@@ -77,7 +78,7 @@ public class Main {
 				System.out.println("\nSu inmueble se encuentra en buen estado? (Responder 'Si' o 'No'):\n");
 				boolean estadoFisicoInmueble = false;
 				String e = sc.next();
-				if(e.equals("Si")) {
+				if(e.equalsIgnoreCase("si")) {
 					estadoFisicoInmueble = true;
 				}
 				
@@ -85,25 +86,74 @@ public class Main {
 						+ "(Responder 'Apartamento' o 'Casa'):\n");
 				String inmueble = sc.next();
 				
-				if(inmueble.equals("Apartamento")) {
+				if(inmueble.equalsIgnoreCase("apartamento")) {
 					
 					Apartamento apartamento = null;
+					
+					System.out.println("\nNumero de Piso en el que se encuentra el Apartamento:\n");
+					int numeroDePiso = sc.nextInt();
 					
 					System.out.println("\nEl inmueble a registrar está disponible? (Responder 'Si' o 'No'):\n");
 					boolean estadoArriendoInmueble = true;
 					String es = sc.next();
-					if(es.equals("Si")) {
+					if(es.equalsIgnoreCase("si")) {
 						estadoArriendoInmueble = false;
 						
-						System.out.println("\nNumero de Piso en el que se encuentra el Apartamento:\n");
-						int numeroDePiso = sc.nextInt();
-						
-						apartamento = new Apartamento(id, direccion, canon, tamano, numeroHabitaciones, 
+						apartamento = new Apartamento(idInmueble, direccion, canon, tamano, numeroHabitaciones, 
 								numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, 
 								contrato, estadoArriendoInmueble, numeroDePiso);
 						
+						System.out.println("Apartamento registrado exitosamente");
+						
 						break;
 					}
+					
+					apartamento = new Apartamento(idInmueble, direccion, canon, tamano, numeroHabitaciones, 
+							numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, 
+							contrato, estadoArriendoInmueble, numeroDePiso);
+					
+					System.out.println("\nRegistre los datos del inquilino al que arrendo el apartamento\n");
+					System.out.println("Documento de identidad del inquilino:\n");
+					String idInquilino = sc.next();
+					
+					System.out.println("\nNombre completo del inquilino:\n");
+					String nombreInquilino = sc.next();
+					
+					System.out.println("\nGenero del inquilino:\n");
+					String genero = sc.next();
+					
+					System.out.println("\nFecha de nacimiento del inquilino (En formato 'dd/mm/yyyy'):\n");
+					String f = sc.next();
+					LocalDate fecha = LocalDate.parse(f);
+					
+					System.out.println("\nNumero de telefono del inquilino:\n");
+					String telefono = sc.next();
+					
+					System.out.println("\nCorreo electronico del inquilino:\n");
+					String correo = sc.next();
+					
+					inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
+							correo, contrato);
+					
+					System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
+							+ "inquilino actual");
+					System.out.println("\nNumero de identificacion del contrato");
+					double idContrato = sc.nextDouble();
+					
+					System.out.println("\nFecha de inicio de contrato (dd/mm/yy):\n");
+					String fInicio = sc.next();
+					LocalDate fechaInicio = LocalDate.parse(fInicio);
+					
+					System.out.println("\nFecha de finalización de contrato (dd/mm/yy):\n");
+					String fFin = sc.next();
+					LocalDate fechaFin = LocalDate.parse(fFin);
+					
+					contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, apartamento, 
+							inquilino, true);					
+					contrato.getInquilino().setContrato(contrato);
+					apartamento.setContrato(contrato);
+					
+					System.out.println("\nApartamento con su debido contrato registrado exitosamente\n");
 					
 					break;
 				}
@@ -113,18 +163,65 @@ public class Main {
 				System.out.println("\nEl inmueble a registrar está disponible? (Responder 'Si' o 'No'):\n");
 				boolean estadoArriendoInmueble = true;
 				String es = sc.next();
-				if(es.equals("Si")) {
+				
+				System.out.println("\nArea al aire libre:\n");
+				int areaAireLibre = sc.nextInt();
+				
+				if(es.equalsIgnoreCase("si")) {
 					estadoArriendoInmueble = false;
 					
-					System.out.println("\nArea al aire libre:\n");
-					int areaAireLibre = sc.nextInt();
-					
-					casa = new Casa(id, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
+					casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 							balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, estadoArriendoInmueble, 
 							areaAireLibre);
 					
 					break;
 				}
+				
+				casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
+						balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, 
+						estadoArriendoInmueble, areaAireLibre);
+				
+				System.out.println("\nRegistre los datos del inquilino al que arrendo la casa\n");
+				System.out.println("Documento de identidad del inquilino:\n");
+				String idInquilino = sc.next();
+				
+				System.out.println("\nNombre completo del inquilino:\n");
+				String nombreInquilino = sc.next();
+				
+				System.out.println("\nGenero del inquilino:\n");
+				String genero = sc.next();
+				
+				System.out.println("\nFecha de nacimiento del inquilino (En formato 'dd/mm/yyyy'):\n");
+				String f = sc.next();
+				LocalDate fecha = LocalDate.parse(f);
+				
+				System.out.println("\nNumero de telefono del inquilino:\n");
+				String telefono = sc.next();
+				
+				System.out.println("\nCorreo electronico del inquilino:\n");
+				String correo = sc.next();
+				
+				inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
+						correo, contrato);
+				
+				System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
+						+ "inquilino actual");
+				System.out.println("\nNumero de identificacion del contrato");
+				double idContrato = sc.nextDouble();
+				
+				System.out.println("\nFecha de inicio de contrato (dd/mm/yy):\n");
+				String fInicio = sc.next();
+				LocalDate fechaInicio = LocalDate.parse(fInicio);
+				
+				System.out.println("\nFecha de finalización de contrato (dd/mm/yy):\n");
+				String fFin = sc.next();
+				LocalDate fechaFin = LocalDate.parse(fFin);
+				
+				contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, casa, inquilino, true);					
+				contrato.getInquilino().setContrato(contrato);
+				casa.setContrato(contrato);
+				
+				System.out.println("\nApartamento con su debido contrato registrado exitosamente\n");
 				
 				break;
 			}
@@ -135,10 +232,59 @@ public class Main {
 				System.out.println("2. Buscar un inmueble\n");
 				byte opcion = sc.nextByte();
 				if(opcion == 1) {
-					System.out.println("Mostrar listado de inmuebles registrados y sus direcciones (?)\n");
+					System.out.println("\nDesea buscar casas o apartamentos?:\n");
+					String inmueble = sc.next();
+					if(inmueble.equalsIgnoreCase("casas")) {
+						short cont = 1;
+						for(Casa casa : Casa.getListado()) {
+							System.out.println("Casa " + cont + ".\nDireccion: " + casa.getDireccion());
+						}
+						
+						break;
+					}
+					
+					short cont = 1;
+					for(Apartamento apartamento : Apartamento.getListado()) {
+						System.out.println("Apartamento " + cont + ".\nDireccion: " + apartamento.getDireccion());
+					}
+					
 					break;
 				}
-				System.out.println("Atributos de inmueble buscado (mostrarInmueble)");
+				
+				System.out.println("\nIngrese el numero de identificacion del inmueble\n");
+				double id = sc.nextDouble();
+				System.out.println("\nEs una casa o un apartamento?:\n");
+				String inmueble = sc.next();
+				boolean encontrado = false;
+				if(inmueble.equalsIgnoreCase("casa")) {
+					for(Casa casa : Casa.getListado()) {
+						if(casa.getId() == id) {
+							encontrado = true;
+							casa.mostrarInmueble();
+							break;
+						}
+					}
+					if(!encontrado) {
+						System.out.println("Casa no registrada con numero de identificacion " + id);
+						break;
+					}
+					
+					break;
+				}
+				
+				for(Apartamento apartamento : Apartamento.getListado()) {
+					if(apartamento.getId() == id) {
+						encontrado = true;
+						apartamento.mostrarInmueble();
+						break;
+					}
+				}
+				
+				if(!encontrado) {
+					System.out.println("Apartamento no registrada con numero de identificacion " + id);
+					break;
+				}
+				
 				break;
 			}
 			

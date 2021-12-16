@@ -1,9 +1,11 @@
 package gestorAplicacion_Inmuebles;
+
 import java.io.Serializable;
 import java.util.*;
 import gestorAplicacion_contratos.*;
 public class Apartamento extends Inmueble implements Serializable {
-
+	
+	private static ArrayList<Apartamento> listado = new ArrayList<Apartamento>();
     private int numeroDePiso;
     
     //inicio serializacion        
@@ -32,6 +34,7 @@ public class Apartamento extends Inmueble implements Serializable {
         super(id, direccion, canon, tamano, numeroHabitaciones, numeroBanos, balcon, patio, cuartoUtil, parqueadero,
         		estadoFisicoInmueble, contrato, estadoArriendoInmueble);
         this.numeroDePiso = numeroDePiso;
+        listado.add(this);
     }
 
     //getter and setter
@@ -46,7 +49,15 @@ public class Apartamento extends Inmueble implements Serializable {
 
     //fin getter and setter
 
-    @Override
+    public static ArrayList<Apartamento> getListado() {
+		return listado;
+	}
+
+	public static void setListado(ArrayList<Apartamento> listado) {
+		Apartamento.listado = listado;
+	}
+
+	@Override
     public String mostrarInmueble() {
         return "Apartamento{" +
                 "id del apartamento= " + getId() +

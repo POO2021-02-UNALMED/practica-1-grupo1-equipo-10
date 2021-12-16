@@ -1,16 +1,16 @@
 package gestorAplicacion_contratos;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.LinkedList;
+import java.util.*;
+import java.time.LocalDate;
 
 import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Inquilino implements Serializable {
-    private String documento_identidad;
-    private String nombre_completo;
+    private String documentoIdentidad;
+    private String nombreCompleto;
     private String genero;
-    private Date fecha_nacimiento;
+    private LocalDate fechaNacimiento;
     private String telefono;
     private String correo;
     private Contrato contrato;
@@ -32,14 +32,14 @@ public class Inquilino implements Serializable {
 	}
 
 	//fin serialización 
-    public Inquilino(String documento_identidad, String nombre_completo,
-                     String genero, Date fecha_nacimiento, String telefono,
+    public Inquilino(String documentoIdentidad, String nombreCompleto,
+                     String genero, LocalDate fechaNacimiento, String telefono,
                      String correo, Contrato contrato) {
 
-        this.documento_identidad = documento_identidad;
-        this.nombre_completo = nombre_completo;
+        this.documentoIdentidad = documentoIdentidad;
+        this.nombreCompleto = nombreCompleto;
         this.genero = genero;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
         this.correo = correo;
         this.contrato = contrato;
@@ -47,20 +47,20 @@ public class Inquilino implements Serializable {
 
     //getter and setter
 
-    public String getDocumento_identidad() {
-        return documento_identidad;
+    public String getDocumentoIdentidad() {
+        return documentoIdentidad;
     }
 
-    public void setDocumento_identidad(String documento_identidad) {
-        this.documento_identidad = documento_identidad;
+    public void setDocumentoIdentidad(String documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
     }
 
-    public String getNombre_completo() {
-        return nombre_completo;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombre_completo(String nombre_completo) {
-        this.nombre_completo = nombre_completo;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public String getGenero() {
@@ -71,12 +71,12 @@ public class Inquilino implements Serializable {
         this.genero = genero;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getTelefono() {
@@ -110,10 +110,10 @@ public class Inquilino implements Serializable {
     @Override
     public String toString() {
         return "Inquilino{" +
-                "documento_identidad=" + documento_identidad +
-                ", nombre_completo=" + nombre_completo +
+                "documento_identidad=" + documentoIdentidad +
+                ", nombre_completo=" + nombreCompleto +
                 ", genero=" + genero +
-                ", fecha_nacimiento=" + fecha_nacimiento +
+                ", fecha_nacimiento=" + fechaNacimiento +
                 ", telefono=" + telefono +
                 ", correo=" + correo +
                 ", contrato=" + contrato +

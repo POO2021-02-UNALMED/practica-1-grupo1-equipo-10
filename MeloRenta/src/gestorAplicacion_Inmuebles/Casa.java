@@ -1,12 +1,12 @@
 package gestorAplicacion_Inmuebles;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-
+import java.util.*;
 import gestorAplicacion_contratos.Contrato;
 
 public class Casa extends Inmueble implements Serializable{
     private int areaAireLibre;
+    private static ArrayList<Casa> listado = new ArrayList<Casa>();
     
     //inicio serializacion        
     private static LinkedList<Casa> casas = new LinkedList<Casa>();
@@ -32,6 +32,7 @@ public class Casa extends Inmueble implements Serializable{
                 boolean estadoFisicoInmueble, Contrato contrato, boolean estadoArriendoInmueble, int areaAireLibre) {
         super(id, direccion, canon, tamano, numeroHabitaciones, numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, estadoArriendoInmueble);
         this.areaAireLibre = areaAireLibre;
+        listado.add(this);
     }
 
     //getter and setter
@@ -48,7 +49,15 @@ public class Casa extends Inmueble implements Serializable{
     //fin getter and setter
 
 
-    @Override
+    public static ArrayList<Casa> getListado() {
+		return listado;
+	}
+
+	public static void setListado(ArrayList<Casa> listado) {
+		Casa.listado = listado;
+	}
+
+	@Override
     public String mostrarInmueble() {
         return "Casa{" +
                 "id de la casa= " + getId() +
