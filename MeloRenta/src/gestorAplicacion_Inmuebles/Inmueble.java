@@ -1,11 +1,12 @@
 package gestorAplicacion_Inmuebles;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 import gestorAplicacion_contratos.Contrato;
 
-public abstract class Inmueble {
+public abstract class Inmueble implements Serializable {
     private double id;
     private String direccion;
     private int canon;

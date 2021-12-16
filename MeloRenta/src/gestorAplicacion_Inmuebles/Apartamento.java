@@ -1,7 +1,8 @@
 package gestorAplicacion_Inmuebles;
+import java.io.Serializable;
 import java.util.*;
 import gestorAplicacion_contratos.*;
-public class Apartamento extends Inmueble{
+public class Apartamento extends Inmueble implements Serializable {
 
     private int numeroDePiso;
     

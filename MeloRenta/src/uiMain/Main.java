@@ -1,6 +1,6 @@
 package uiMain;
 import java.util.Scanner;
-
+import baseDatos.*;
 import gestorAplicacion_Inmuebles.*;
 import gestorAplicacion_contratos.*;
 
@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
+		Lector.Leer();
 		byte control = 1;
 		
 		while(control != 0) {

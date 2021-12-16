@@ -1,11 +1,12 @@
 package gestorAplicacion_contratos;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 
 import gestorAplicacion_Inmuebles.Inmueble;
 
-public class Inquilino {
+public class Inquilino implements Serializable {
     private String documento_identidad;
     private String nombre_completo;
     private String genero;

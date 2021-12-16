@@ -1,11 +1,12 @@
 package gestorAplicacion_contratos;
 
 import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 import gestorAplicacion_Inmuebles.Inmueble;
 
-public class Contrato {
+public class Contrato implements Serializable {
     private double id;
     private File clausula;
     private LocalDate fecha_inicio;

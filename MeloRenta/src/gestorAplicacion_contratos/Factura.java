@@ -1,8 +1,9 @@
 package gestorAplicacion_contratos;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Factura {
+public class Factura implements Serializable {
     private double id;
     private boolean estado;
     private Contrato contrato;

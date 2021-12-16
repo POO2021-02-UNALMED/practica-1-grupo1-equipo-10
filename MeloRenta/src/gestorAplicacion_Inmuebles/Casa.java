@@ -1,10 +1,11 @@
 package gestorAplicacion_Inmuebles;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import gestorAplicacion_contratos.Contrato;
 
-public class Casa extends Inmueble{
+public class Casa extends Inmueble implements Serializable{
     private int areaAireLibre;
     
     //inicio serializacion        
