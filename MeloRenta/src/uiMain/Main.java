@@ -1,7 +1,8 @@
 package uiMain;
 import java.util.Scanner;
-import paquete1.*;
-import paquete2.*;
+
+import gestorAplicacion_Inmuebles.*;
+import gestorAplicacion_contratos.*;
 
 public class Main {
 

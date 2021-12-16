@@ -1,4 +1,4 @@
-package paquete2;
+package gestorAplicacion_contratos;
 
 public class Factura {
     private double id;

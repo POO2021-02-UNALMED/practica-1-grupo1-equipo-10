@@ -1,6 +1,6 @@
-package paquete1;
+package gestorAplicacion_Inmuebles;
 
-import paquete2.Contrato;
+import gestorAplicacion_contratos.Contrato;
 
 public class Apartamento extends Inmueble{
 

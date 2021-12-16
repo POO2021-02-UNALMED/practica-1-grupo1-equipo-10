@@ -1,8 +1,8 @@
-package paquete1;
-
-import paquete2.Contrato;
+package gestorAplicacion_Inmuebles;
 
 import java.util.ArrayList;
+
+import gestorAplicacion_contratos.Contrato;
 
 public abstract class Inmueble {
     private double id;
