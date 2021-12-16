@@ -1,6 +1,9 @@
 
 package BaseDatos;
 import java.io.*;
+import java.util.*;
+import gestorAplicacion_contratos.*;
+import gestorAplicacion_Inmuebles.*;
 
 
 public class Escritor {
@@ -13,13 +16,14 @@ public class Escritor {
 			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\vehiculos.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
-			objectOutputStream.writeInt(new Integer((Vehiculo.getVehiculos()).size()));
-			for (Vehiculo vehiculo : Vehiculo.getVehiculos())
-				objectOutputStream.writeObject(vehiculo);
+			objectOutputStream.writeInt(new Integer((Contrato.getContratos()).size()));
+			for (Contrato contrato : Contrato.getContratos())
+				objectOutputStream.writeObject(contrato);
 			
 			
 			objectOutputStream.close();
 		}
+		
 		catch(Exception excepcion) {
 			System.out.println(excepcion.getMessage());
 		}
@@ -37,6 +41,14 @@ public class Escritor {
 		catch(Exception excepcion) {
 			System.out.println(excepcion.getMessage());
 		}
+		
+		
+	}
+	
+	
+	
+	
+		/*
 		try {
 			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\clientes.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
@@ -97,4 +109,4 @@ public class Escritor {
 
 	}
 }	    
-	
+/*
