@@ -1,6 +1,9 @@
 package gestorAplicacion_contratos;
 
 import java.util.Date;
+import java.util.LinkedList;
+
+import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Inquilino {
     private String documento_identidad;
@@ -10,7 +13,24 @@ public class Inquilino {
     private String telefono;
     private String correo;
     private Contrato contrato;
+    //inicio serializacion        
+    private static LinkedList<Inquilino> inquilinos = new LinkedList<Inquilino>();
+       
+    
+    public static LinkedList<Inquilino> getInquilinos() {
+		return inquilinos;
+	}
 
+	public static void adicionarInquilino(Inquilino inquilino) {
+		inquilinos.add(inquilino);
+	}
+    
+
+	public static void setInquilinos(LinkedList<Inquilino> inquilinos) {
+		Inquilino.inquilinos = inquilinos;
+	}
+
+	//fin serialización 
     public Inquilino(String documento_identidad, String nombre_completo,
                      String genero, Date fecha_nacimiento, String telefono,
                      String correo, Contrato contrato) {

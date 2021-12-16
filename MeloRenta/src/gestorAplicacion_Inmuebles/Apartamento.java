@@ -1,10 +1,28 @@
 package gestorAplicacion_Inmuebles;
-
-import gestorAplicacion_contratos.Contrato;
-
+import java.util.*;
+import gestorAplicacion_contratos.*;
 public class Apartamento extends Inmueble{
 
     private int numeroDePiso;
+    
+    //inicio serializacion        
+    private static LinkedList<Apartamento> apartamentos = new LinkedList<Apartamento>();
+       
+    
+    public static LinkedList<Apartamento> getApartamentos() {
+		return apartamentos;
+	}
+
+	public static void adicionarFactura(Apartamento Apartamento) {
+		apartamentos.add(Apartamento);
+	}
+    
+
+	public static void setFacturas(LinkedList<Apartamento> apartamentos) {
+		Apartamento.apartamentos = apartamentos;
+	}
+
+	//fin serialización   
 
     public Apartamento(double id, String direccion, int canon, int tamano,
                        int numeroHabitaciones, int numeroBanos, boolean balcon,
