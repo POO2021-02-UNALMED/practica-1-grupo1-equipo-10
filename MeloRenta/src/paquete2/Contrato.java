@@ -3,18 +3,19 @@ package paquete2;
 import paquete1.Inmueble;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Contrato {
     private double id;
     private File clausula;
-    private Date fecha_inicio;
-    private Date fecha_fin;
+    private LocalDate fecha_inicio;
+    private LocalDate fecha_fin;
     private Inmueble inmueble;
     private Inquilino inquilino;
     private boolean estado;
 
-    public Contrato(double id, File clausula, Date fecha_inicio, Date fecha_fin,
+    public Contrato(double id, File clausula, LocalDate fecha_inicio, LocalDate fecha_fin,
                     Inmueble inmueble, Inquilino inquilino, boolean estado) {
         this.id = id;
         this.clausula = clausula;
@@ -43,19 +44,19 @@ public class Contrato {
         this.clausula = clausula;
     }
 
-    public Date getFecha_inicio() {
+    public LocalDate getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
+    public void setFecha_inicio(LocalDate fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Date getFecha_fin() {
+    public LocalDate getFecha_fin() {
         return fecha_fin;
     }
 
-    public void setFecha_fin(Date fecha_fin) {
+    public void setFecha_fin(LocalDate fecha_fin) {
         this.fecha_fin = fecha_fin;
     }
 
@@ -85,17 +86,35 @@ public class Contrato {
 
     //fin getter and setter
 
-    public void mostrar_contrato(){}
+    
 
-    public void renovar_fecha_fin(){}
+    public void renovar_contrato(){ //Aqui tomamos la fecha de finalización del contrato y le sumamos 30 días.
+    	this.fecha_fin.plusDays(30);
+    }
+    
+    
+    
+    
 
-    public void editar_fecha_fin(){}
+    public String notificar_cierre_contrato(){
+    	if (this.fecha_fin == (LocalDate.now().plusDays(1))) {
+    		this.estado= !this.estado;
+    		String notificacion ="Se ha cerrado el contrato";
+    		return notificacion;
+		}
+    	String notificacion2= "Aún queda tiempo";
+    	return notificacion2;
+    	
+    }
+    
+    public void inhabilitarContrato() {
+    	if (this.estado = true) {
+			this.estado= !this.estado;
+    	}
+    }
 
-    public void notificar_cierre_contrato(){}
 
-
-    @Override
-    public String toString() {
+    public String mostrar_contrato() {
         return "Contrato{" +
                 "id=" + id +
                 ", clausula=" + clausula +

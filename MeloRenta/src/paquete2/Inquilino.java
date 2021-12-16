@@ -84,12 +84,18 @@ public class Inquilino {
 
     //fin getter and setter
 
-    public void nofificarPagoCompletado(){}
-
-    public void calendarioPago(){}
-
-    public void calcularFechasPago(){}
-
-
+    
     //falta el metodo toString
+    @Override
+    public String toString() {
+        return "Inquilino{" +
+                "documento_identidad=" + documento_identidad +
+                ", nombre_completo=" + nombre_completo +
+                ", genero=" + genero +
+                ", fecha_nacimiento=" + fecha_nacimiento +
+                ", telefono=" + telefono +
+                ", correo=" + correo +
+                ", contrato=" + contrato +
+                '}';
+    }
 }
