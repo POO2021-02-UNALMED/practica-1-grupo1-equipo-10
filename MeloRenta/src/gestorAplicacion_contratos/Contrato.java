@@ -1,6 +1,5 @@
 package gestorAplicacion_contratos;
 
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
@@ -133,14 +132,14 @@ public class Contrato implements Serializable {
 
 
     public String mostrar_contrato() {
-        return "Contrato{" +
-                "id=" + id +
-                ", clausula=" + clausula +
-                ", fecha_inicio=" + fecha_inicio +
-                ", fecha_fin=" + fecha_fin +
-                ", inmueble=" + inmueble +
-                ", inquilino=" + inquilino +
-                ", estado=" + estado +
+        return "Contrato {" +
+                "id = " + id +
+                "\n, clausula = " + clausula +
+                "\n, fecha_inicio = " + fecha_inicio +
+                ", fecha_fin = " + fecha_fin +
+                "\n, inmueble = " + inmueble +
+                "\n, inquilino = " + inquilino +
+                "\n, estado = " + estado +
                 '}';
     }
   //Este método se encarga de presentar toda la información del objeto contrato

@@ -187,7 +187,7 @@ public abstract class Inmueble implements Serializable {
 
 
     public String recordarReparacion(){
-        if(getEstadoFisicoInmueble()){
+        if(!getEstadoFisicoInmueble()){
             return "El inmueble necesita reparacion";
         } else {
             return "El inmueble no necesita reparacion";

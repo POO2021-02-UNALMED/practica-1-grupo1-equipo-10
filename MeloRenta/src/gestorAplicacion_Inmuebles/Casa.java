@@ -54,39 +54,39 @@ public class Casa extends Inmueble implements Serializable{
 	@Override
     public String mostrarInmueble() {
 		if ((getContrato())!=(null)) {
-        return "Casa{" +
+        return "Casa {" +
                 "id de la casa= " + getId() +
-                "direccion de la casa= " + getDireccion() +
-                "canon de la casa= " + getCanon() +
-                "tamano de la casa= " + getTamano() +
-                "numero de habitaciones de la casa = " + getNumeroHabitaciones() +
-                "numero de banos de la casa= " + getNumeroBanos() +
-                "La casa tiene balcon?= "  + isBalcon() +
-                "La casa tiene patio?= " + isPatio() +
-                "La casa tiene cuarto util?= " + isCuartoUtil() +
-                "Numero de parqueaderos de la casa= " + getParqueadero() +
-                "Estado fisico de la casa?= " + super.recordarReparacion() +
-                "id del contrato de la casa= " + getContrato().getId() +
-                "Estado del arriendo de la casa?= " + super.consultarEstado() +
-                "areas al aire libre de la casa=" + getAreaAireLibre() +
+                ", direccion de la casa= " + getDireccion() +
+                ",\ncanon de la casa= " + getCanon() +
+                ", tamano de la casa= " + getTamano() +
+                ",\nnumero de habitaciones de la casa = " + getNumeroHabitaciones() +
+                ",\nnumero de banos de la casa= " + getNumeroBanos() +
+                ",\nLa casa tiene balcon?= "  + isBalcon() +
+                ", La casa tiene patio?= " + isPatio() +
+                ",\nLa casa tiene cuarto util?= " + isCuartoUtil() +
+                ",\nNumero de parqueaderos de la casa= " + getParqueadero() +
+                ",\nEstado fisico de la casa?= " + super.recordarReparacion() +
+                ",\nid del contrato de la casa= " + getContrato().getId() +
+                ",\nEstado del arriendo de la casa?= " + super.consultarEstado() +
+                ",\nareas al aire libre de la casa=" + getAreaAireLibre() +
                 '}';
 		}
 		else {
 			 return "Casa{" +
 		                "id de la casa= " + getId() +
-		                "direccion de la casa= " + getDireccion() +
-		                "canon de la casa= " + getCanon() +
-		                "tamano de la casa= " + getTamano() +
-		                "numero de habitaciones de la casa = " + getNumeroHabitaciones() +
-		                "numero de banos de la casa= " + getNumeroBanos() +
-		                "La casa tiene balcon?= "  + isBalcon() +
-		                "La casa tiene patio?= " + isPatio() +
-		                "La casa tiene cuarto util?= " + isCuartoUtil() +
-		                "Numero de parqueaderos de la casa= " + getParqueadero() +
-		                "Estado fisico de la casa?= " + super.recordarReparacion() +
-		                "Esta casa no tiene ningún contrato activo "+
-		                "Estado del arriendo de la casa?= " + super.consultarEstado() +
-		                "areas al aire libre de la casa=" + getAreaAireLibre() +
+		                ", direccion de la casa= " + getDireccion() +
+		                ",\ncanon de la casa= " + getCanon() +
+		                ", tamano de la casa= " + getTamano() +
+		                ",\nnumero de habitaciones de la casa = " + getNumeroHabitaciones() +
+		                ",\nnumero de banos de la casa= " + getNumeroBanos() +
+		                ",\nLa casa tiene balcon?= "  + isBalcon() +
+		                ", La casa tiene patio?= " + isPatio() +
+		                ",\nLa casa tiene cuarto util?= " + isCuartoUtil() +
+		                ",\nNumero de parqueaderos de la casa= " + getParqueadero() +
+		                ",\nEstado fisico de la casa?= " + super.recordarReparacion() +
+		                ",\nEsta casa no tiene ningún contrato activo "+
+		                ",\nEstado del arriendo de la casa?= " + super.consultarEstado() +
+		                ",\nareas al aire libre de la casa=" + getAreaAireLibre() +
 		                '}';
 		}
     }

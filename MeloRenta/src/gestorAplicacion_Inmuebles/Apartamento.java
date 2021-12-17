@@ -54,38 +54,38 @@ public class Apartamento extends Inmueble implements Serializable {
     public  String mostrarInmueble() {
 		if ((getContrato())!=(null)) {
         return "Apartamento{" +
-                "id del apartamento= " + getId() +
-                "direccion del apartamento= " + getDireccion() +
-                "canon del apartamento= " + getCanon() +
-                "tamano del apartamento= " + getTamano() +
-                "numero de habitaciones del apartamento = " + getNumeroHabitaciones() +
-                "numero de banos del apartamento= " + getNumeroBanos() +
-                "El apartamento tiene balcon?= "  + isBalcon() +
-                "El apartamento tiene patio?= " + isPatio() +
-                "El apartamento tiene cuarto util?= " + isCuartoUtil() +
-                "Numero de parqueaderos del apartamento= " + getParqueadero() +
-                "Estado fisico del apartamento?= " + super.recordarReparacion() +
-                "id del contrato del apartamento= " + getContrato().getId() +
-                "Estado del arriendo del apartamento?= " + super.consultarEstado() +
-                "numero de piso del apartamento=" + getNumeroDePiso() +
+                "id del apartamento = " + getId() +
+                "\ndireccion del apartamento = " + getDireccion() +
+                "\ncanon del apartamento = " + getCanon() +
+                "\ntamano del apartamento = " + getTamano() +
+                "\nnumero de habitaciones del apartamento = " + getNumeroHabitaciones() +
+                "\nnumero de banos del apartamento = " + getNumeroBanos() +
+                "\nEl apartamento tiene balcon? = "  + isBalcon() +
+                "\nEl apartamento tiene patio? = " + isPatio() +
+                "\nEl apartamento tiene cuarto util? = " + isCuartoUtil() +
+                "\nNumero de parqueaderos del apartamento = " + getParqueadero() +
+                "\nEstado fisico del apartamento? = " + super.recordarReparacion() +
+                "\nid del contrato del apartamento = " + getContrato().getId() +
+                "\nEstado del arriendo del apartamento? = " + super.consultarEstado() +
+                "\nnumero de piso del apartamento = " + getNumeroDePiso() +
                 '}';
 		}
 		else {
 		return "Apartamento{" +
-                "id del apartamento= " + getId() +
-                "direccion del apartamento= " + getDireccion() +
-                "canon del apartamento= " + getCanon() +
-                "tamano del apartamento= " + getTamano() +
-                "numero de habitaciones del apartamento = " + getNumeroHabitaciones() +
-                "numero de banos del apartamento= " + getNumeroBanos() +
-                "El apartamento tiene balcon?= "  + isBalcon() +
-                "El apartamento tiene patio?= " + isPatio() +
-                "El apartamento tiene cuarto util?= " + isCuartoUtil() +
-                "Numero de parqueaderos del apartamento= " + getParqueadero() +
-                "Estado fisico del apartamento?= " + super.recordarReparacion() +
-                "Este apartamento no tiene ningún contrato activo "+
-                "Estado del arriendo del apartamento?= " + super.consultarEstado() +
-                "numero de piso del apartamento=" + getNumeroDePiso() +
+                "id del apartamento = " + getId() +
+                ", direccion del apartamento = " + getDireccion() +
+                ",\ncanon del apartamento = " + getCanon() +
+                ", tamano del apartamento = " + getTamano() +
+                ",\nnumero de habitaciones del apartamento = " + getNumeroHabitaciones() +
+                ",\nnumero de banos del apartamento = " + getNumeroBanos() +
+                ",\nEl apartamento tiene balcon? = "  + isBalcon() +
+                ", El apartamento tiene patio? = " + isPatio() +
+                ",\nEl apartamento tiene cuarto util? = " + isCuartoUtil() +
+                ",\nNumero de parqueaderos del apartamento = " + getParqueadero() +
+                ",\nEstado fisico del apartamento? = " + super.recordarReparacion() +
+                ",\nEste apartamento no tiene ningún contrato activo "+
+                ",\nEstado del arriendo del apartamento? = " + super.consultarEstado() +
+                ",\nnumero de piso del apartamento = " + getNumeroDePiso() +
                 '}';
 		}
     }

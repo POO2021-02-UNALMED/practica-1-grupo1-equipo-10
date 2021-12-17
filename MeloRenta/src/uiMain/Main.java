@@ -32,13 +32,14 @@ public class Main {
 			
 			switch(seleccion) {
 			case 0:{
-				control=0;
+				control = 0;
 				break;
 			}
 			case 1:{
 				
 				Inquilino inquilino = null;
 				Contrato contrato = null;
+				Factura factura = null;
 				
 				System.out.println("\nIngrese los siguientes datos, uno por uno, por favor\n");
 				
@@ -91,7 +92,7 @@ public class Main {
 					estadoFisicoInmueble = true;
 				}
 				
-				System.out.println("\n El inmueble a registrar es un apartamento o una casa? "
+				System.out.println("\nEl inmueble a registrar es un apartamento o una casa? "
 						+ "(Responder 'Apartamento' o 'Casa'):\n");
 				String inmueble = sc.next();
 				
@@ -143,7 +144,7 @@ public class Main {
 					
 					inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
 							correo, contrato);
-					Inquilino.adicionarInquilino(inquilino);
+					//Inquilino.adicionarInquilino(inquilino);
 					
 					System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
 							+ "inquilino actual");
@@ -165,6 +166,7 @@ public class Main {
 							inquilino, true);
 					contrato.getInquilino().setContrato(contrato);
 					apartamento.setContrato(contrato);
+					factura = new Factura(idContrato, false, contrato);
 					
 					System.out.println("\nApartamento con su debido contrato registrado exitosamente\n");
 					
@@ -216,7 +218,8 @@ public class Main {
 				
 				inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
 						correo, contrato);
-				Inquilino.adicionarInquilino(inquilino);
+				//Inquilino.adicionarInquilino(inquilino);
+				
 				System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
 						+ "inquilino actual");
 				System.out.println("\nNumero de identificacion del contrato");
@@ -236,6 +239,7 @@ public class Main {
 				contrato = new Contrato(idContrato, clausulac, fechaInicio, fechaFin, casa, inquilino, true);
 				contrato.getInquilino().setContrato(contrato);
 				casa.setContrato(contrato);
+				factura = new Factura(idContrato, false, contrato);
 				
 				System.out.println("\nCasa con su debido contrato registrado exitosamente\n");
 				
@@ -253,7 +257,7 @@ public class Main {
 					if(inmueble.equalsIgnoreCase("casas")) {
 						short cont = 1;
 						for(Casa casa : Casa.getCasas()) {
-							System.out.println("Casa " + cont + ".\nDireccion: " + casa.getDireccion());
+							System.out.println("Casa " + cont + ".\tDireccion: " + casa.getDireccion());
 						}
 						
 						break;
@@ -261,7 +265,7 @@ public class Main {
 					
 					short cont = 1;
 					for(Apartamento apartamento : Apartamento.getApartamentos()) {
-						System.out.println("Apartamento " + cont + ".\nDireccion: " + apartamento.getDireccion());
+						System.out.println("Apartamento " + cont + ".\tDireccion: " + apartamento.getDireccion());
 					}
 					
 					break;
@@ -306,38 +310,75 @@ public class Main {
 			}
 			
 			case 3:{
-				System.out.println("\n¿El inmueble que va a buscar es una casa o un apartamento?");
-				String respuestacasa = sc.next();
-				if (respuestacasa.equalsIgnoreCase("Apartamento")) {
-					System.out.println("\nEscriba el Id del Apartamento sobre el que quiere ver el historial de contratos ");
-					int idrequeridoapto= sc.nextInt();
-					for (Inmueble inmueble : Apartamento.getApartamentos()) {
-						if (inmueble.getId()==idrequeridoapto) {
+				System.out.println("\nEl inmueble que va a buscar es una casa o un apartamento?");
+				String respuesta = sc.next();
+				boolean encontrado = false;
+				if (respuesta.equalsIgnoreCase("apartamento")) {
+					System.out.println("\nEscriba el Id del Apartamento sobre el que quiere ver el "
+							+ "historial de contratos ");
+					int idRequeridoApto= sc.nextInt();
+					for (Apartamento inmueble : Apartamento.getApartamentos()) {
+						if (inmueble.getId() == idRequeridoApto) {
+							encontrado = true;
 							System.out.println(inmueble.historialContratos());
 							break;
 						}
 					}
-					System.out.println("No se encontró un apartamento con el id ingresado");
-					break;
-				}
-				if (respuestacasa.equalsIgnoreCase("Casa")) {
-					System.out.println("\nEscriba el Id de la Casa sobre el que quiere ver el historial de contratos ");
-					int idrequeridocasa= sc.nextInt();
-					for (Inmueble inmueble : Casa.getCasas()) {
-						if (inmueble.getId()==idrequeridocasa) {
-							System.out.println(inmueble.historialContratos());
-							break;
-						}
+					
+					if(!encontrado) {
+						System.out.println("No se encontró un apartamento con el id ingresado");
+						break;
 					}
-					System.out.println("No se encontró una casa con el id ingresado");
+					
 					break;
 				}
 				
+				System.out.println("\nEscriba el Id de la Casa sobre el que quiere ver el historial de "
+						+ "contratos ");
+				int idRequeridoCasa= sc.nextInt();
+				for (Casa inmueble : Casa.getCasas()) {
+					if (inmueble.getId() == idRequeridoCasa) {
+						encontrado = true;
+						System.out.println(inmueble.historialContratos());
+						break;
+					}
+				}
+				
+				if(!encontrado) {
+					System.out.println("No se encontró una casa con el id ingresado");
+					break;
+				}				
 				
 			}
 			
 			case 4:{
-				System.out.println("\nMostrar fechas proximas de pago y estado de inmueble");
+				
+				System.out.println("\nIngrese el numero de identificacion del contrato al que se le "
+						+ "revisará el calendario de pago\n");
+				double id = sc.nextDouble();
+				boolean contador = false;
+				for(Factura factura : Factura.getFacturas()) {
+					
+					if(factura.getId() == id) {
+						
+						contador = true;
+						
+						System.out.println("\nDisponibilidad del inmueble relacionado con el contrato:\n");
+						System.out.println(factura.getContrato().getInmueble().consultarEstado());
+						
+						System.out.println("\nFechas de pago del contrato:\n");
+						for(LocalDate fecha : factura.calendario_pago()) {
+							System.out.println(fecha);
+						}
+						
+					}
+				}
+				
+				if(!contador) {
+					System.out.println("\nNo se encontró ninguna factura relacionada con el contrato\n");
+					break;
+				}
+				
 				break;
 			}
 			

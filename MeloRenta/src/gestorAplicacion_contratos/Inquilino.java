@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.time.LocalDate;
 
-import gestorAplicacion_Inmuebles.Inmueble;
+//import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Inquilino implements Serializable {
     private String documentoIdentidad;
@@ -111,14 +111,14 @@ public class Inquilino implements Serializable {
     //falta el metodo toString
     @Override
     public String toString() {
-        return "Inquilino{" +
-                "documento_identidad=" + documentoIdentidad +
-                ", nombre_completo=" + nombreCompleto +
-                ", genero=" + genero +
-                ", fecha_nacimiento=" + fechaNacimiento +
-                ", telefono=" + telefono +
-                ", correo=" + correo +
-                ", contrato=" + contrato +
+        return "Inquilino {" +
+                "documento_identidad = " + documentoIdentidad +
+                ", nombre_completo = " + nombreCompleto +
+                ", genero = " + genero +
+                ",\nfecha_nacimiento = " + fechaNacimiento +
+                ", telefono = " + telefono +
+                ", correo = " + correo +
+                ",\ncontrato=" + contrato +
                 '}';
     }
     //Este método se encarga de presentar toda la información del objeto inquilino
