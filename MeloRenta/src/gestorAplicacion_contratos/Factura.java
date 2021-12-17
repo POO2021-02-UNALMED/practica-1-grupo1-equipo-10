@@ -32,6 +32,7 @@ public class Factura implements Serializable {
         this.id = id;
         this.estado = estado;
         this.contrato = contrato;
+        facturas.add(this);
     }
 
     //getter and setter
