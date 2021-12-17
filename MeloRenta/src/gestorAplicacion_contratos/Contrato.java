@@ -14,7 +14,6 @@ public class Contrato implements Serializable {
     private Inmueble inmueble;
     private Inquilino inquilino;
     private boolean estado;
-    private static ArrayList<Contrato> listado = new ArrayList<Contrato>();
     
     //inicio serializacion        
     private static final long serialVersionUID = 1L;
@@ -47,7 +46,7 @@ public class Contrato implements Serializable {
         this.inmueble = inmueble;
         this.inquilino = inquilino;
         this.estado = estado;
-        listado.add(this); //Dentro de la lista se añade el objeto creado por el constructor
+        contratos.add(this); //Dentro de la lista se añade el objeto creado por el constructor
     }
     
     //getter and setter
@@ -107,10 +106,6 @@ public class Contrato implements Serializable {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    public static ArrayList<Contrato> getListado() {
-		
-		return listado;
-	}
     //fin getter and setter    
 
     public void renovar_contrato(){ 

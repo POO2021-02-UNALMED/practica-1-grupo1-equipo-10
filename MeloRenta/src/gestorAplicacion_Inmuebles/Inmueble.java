@@ -66,7 +66,7 @@ public abstract class Inmueble implements Serializable {
 
     public ArrayList<String> historialContratos(){
     	ArrayList<String> historial = new ArrayList<>();
-    	for(Contrato contrato : Contrato.getListado()){
+    	for(Contrato contrato : Contrato.getContratos()){
     		if(contrato.getInmueble().getId() == this.getId()){
     			historial.add(contrato.toString());
     		}

@@ -108,7 +108,6 @@ public class Main {
 						apartamento = new Apartamento(idInmueble, direccion, canon, tamano, numeroHabitaciones, 
 								numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, 
 								contrato, estadoArriendoInmueble, numeroDePiso);
-						Apartamento.adicionarApartamento(apartamento);
 						System.out.println("Apartamento registrado exitosamente");
 						
 						break;
@@ -158,7 +157,6 @@ public class Main {
 					
 					contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, apartamento, 
 							inquilino, true);
-					Contrato.adicionarContrato(contrato);
 					contrato.getInquilino().setContrato(contrato);
 					apartamento.setContrato(contrato);
 					
@@ -182,7 +180,6 @@ public class Main {
 					casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 							balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, estadoArriendoInmueble, 
 							areaAireLibre);
-					Casa.adicionarCasa(casa);
 					System.out.println("\nCasa registrada exitosamente\n");
 					break;
 				}
@@ -190,7 +187,6 @@ public class Main {
 				casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 						balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, 
 						estadoArriendoInmueble, areaAireLibre);
-				Casa.adicionarCasa(casa);
 
 				System.out.println("\nRegistre los datos del inquilino al que arrendo la casa\n");
 				System.out.println("Documento de identidad del inquilino:\n");
@@ -229,7 +225,6 @@ public class Main {
 				LocalDate fechaFin = LocalDate.parse(fFin);
 				
 				contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, casa, inquilino, true);
-				Contrato.adicionarContrato(contrato);
 				contrato.getInquilino().setContrato(contrato);
 				casa.setContrato(contrato);
 				

@@ -44,6 +44,7 @@ public class Inquilino implements Serializable {
         this.telefono = telefono;
         this.correo = correo;
         this.contrato = contrato;
+        inquilinos.add(this);
     }
 
     //getter and setter
