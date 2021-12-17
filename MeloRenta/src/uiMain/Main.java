@@ -2,6 +2,8 @@ package uiMain;
 import java.util.*;
 import baseDatos.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import gestorAplicacion_Inmuebles.*;
 import gestorAplicacion_contratos.*;
 
@@ -11,6 +13,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		Lector.Leer();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		System.out.println("                     BIENVENIDO A MELORENTA");
 
 		byte control = 1;
@@ -130,7 +133,7 @@ public class Main {
 					
 					System.out.println("\nFecha de nacimiento del inquilino (En formato 'dd/mm/yyyy'):\n");
 					String f = sc.next();
-					LocalDate fecha = LocalDate.parse(f);
+					LocalDate fecha = LocalDate.parse(f,formatter);
 					
 					System.out.println("\nNumero de telefono del inquilino:\n");
 					String telefono = sc.next();
@@ -147,15 +150,18 @@ public class Main {
 					System.out.println("\nNumero de identificacion del contrato");
 					double idContrato = sc.nextDouble();
 					
+					System.out.println("\nIngrese la clausula del contrato:\n");
+					String clausulac = sc.next();
+					
 					System.out.println("\nFecha de inicio de contrato (dd/mm/yy):\n");
 					String fInicio = sc.next();
-					LocalDate fechaInicio = LocalDate.parse(fInicio);
+					LocalDate fechaInicio = LocalDate.parse(fInicio,formatter);
 					
 					System.out.println("\nFecha de finalización de contrato (dd/mm/yy):\n");
 					String fFin = sc.next();
-					LocalDate fechaFin = LocalDate.parse(fFin);
+					LocalDate fechaFin = LocalDate.parse(fFin,formatter);
 					
-					contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, apartamento, 
+					contrato = new Contrato(idContrato, clausulac, fechaInicio, fechaFin, apartamento, 
 							inquilino, true);
 					contrato.getInquilino().setContrato(contrato);
 					apartamento.setContrato(contrato);
@@ -200,7 +206,7 @@ public class Main {
 				
 				System.out.println("\nFecha de nacimiento del inquilino (En formato 'dd/mm/yyyy'):\n");
 				String f = sc.next();
-				LocalDate fecha = LocalDate.parse(f);
+				LocalDate fecha = LocalDate.parse(f,formatter);
 				
 				System.out.println("\nNumero de telefono del inquilino:\n");
 				String telefono = sc.next();
@@ -216,15 +222,18 @@ public class Main {
 				System.out.println("\nNumero de identificacion del contrato");
 				double idContrato = sc.nextDouble();
 				
+				System.out.println("\nIngrese la clausula del contrato:\n");
+				String clausulac = sc.next();
+				
 				System.out.println("\nFecha de inicio de contrato (dd/mm/yy):\n");
 				String fInicio = sc.next();
-				LocalDate fechaInicio = LocalDate.parse(fInicio);
+				LocalDate fechaInicio = LocalDate.parse(fInicio,formatter);
 				
 				System.out.println("\nFecha de finalización de contrato (dd/mm/yy):\n");
 				String fFin = sc.next();
-				LocalDate fechaFin = LocalDate.parse(fFin);
+				LocalDate fechaFin = LocalDate.parse(fFin,formatter);
 				
-				contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, casa, inquilino, true);
+				contrato = new Contrato(idContrato, clausulac, fechaInicio, fechaFin, casa, inquilino, true);
 				contrato.getInquilino().setContrato(contrato);
 				casa.setContrato(contrato);
 				
