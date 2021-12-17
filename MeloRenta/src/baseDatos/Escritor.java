@@ -14,7 +14,7 @@ public class Escritor {
 	///@SuppressWarnings("removal")
 	public static void Escribir() {
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\contratos.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\contratos.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Contrato.getContratos()).size());
@@ -29,7 +29,7 @@ public class Escritor {
 			System.out.println(excepcion.getMessage());
 		}
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\facturas.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\facturas.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Factura.getFacturas().size()));
@@ -44,7 +44,7 @@ public class Escritor {
 		}
 		
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\apartamentos.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\apartamentos.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Apartamento.getApartamentos().size()));
@@ -59,7 +59,7 @@ public class Escritor {
 		}
 		
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\casas.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\casas.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Casa.getCasas().size()));
@@ -74,7 +74,7 @@ public class Escritor {
 		}
 		
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\inmuebles.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\inmuebles.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Inmueble.getInmuebles().size()));
@@ -89,7 +89,7 @@ public class Escritor {
 		}
 		
 		try {
-			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\src\\baseDatos\\temp\\inquilinos.txt");
+			FileOutputStream salida = new FileOutputStream(archivo.getAbsolutePath()+"\\baseDatos\\temp\\inquilinos.txt");
 			objectOutputStream = new ObjectOutputStream(salida);
 			
 			objectOutputStream.writeInt((Inquilino.getInquilinos().size()));

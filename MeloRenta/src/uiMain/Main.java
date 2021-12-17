@@ -11,11 +11,13 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		Lector.Leer();
+		System.out.println("                     BIENVENIDO A MELORENTA");
+
 		byte control = 1;
 		
 		while(control != 0) {
 		
-			System.out.println("                     BIENVENIDO A MELORENTA\n");
+			System.out.println("\n                        MENU PRINCIPAL\n");
 			System.out.println("Por favor escribe el número de la opcion que desees seleccionar\n");
 			System.out.println("1. Crear Inmueble");
 			System.out.println("2. Visualizar Inmuebles creados");
@@ -168,7 +170,7 @@ public class Main {
 				boolean estadoArriendoInmueble = true;
 				String es = sc.next();
 				
-				System.out.println("\nArea al aire libre:\n");
+				System.out.println("\nArea al aire libre: (En metros cuadrados)\n");
 				int areaAireLibre = sc.nextInt();
 				
 				if(es.equalsIgnoreCase("si")) {
@@ -225,7 +227,7 @@ public class Main {
 				contrato.getInquilino().setContrato(contrato);
 				casa.setContrato(contrato);
 				
-				System.out.println("\nApartamento con su debido contrato registrado exitosamente\n");
+				System.out.println("\nCasa con su debido contrato registrado exitosamente\n");
 				
 				break;
 			}
@@ -331,9 +333,9 @@ public class Main {
 			
 			}
 			if (control==1) {
-				System.out.println("\nDesea realizar otra operacion? (Responder 'Si' o 'No'):\n");
+				System.out.println("\nDesea volver al menu principal? (Responder 'Si' o 'No'):\n");
 				String respuesta = sc.next();
-				if(respuesta.equals("No")) {
+				if(respuesta.equalsIgnoreCase("no")) {
 					control = 0;
 				}
 			}
@@ -341,7 +343,7 @@ public class Main {
 			
 		
 		}
-		
+		Escritor.Escribir();
 		System.out.println("\nMuchas gracias por ser parte de MeloRenta!!!\n");
 		System.out.println("Que tengas un excelente dia!!!");
 
