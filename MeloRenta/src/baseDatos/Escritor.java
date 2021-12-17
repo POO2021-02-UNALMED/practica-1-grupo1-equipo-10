@@ -67,6 +67,7 @@ public class Escritor {
 				objectOutputStream.writeObject(casa);
 			
 			
+			
 			objectOutputStream.close();
 		}
 		catch(Exception excepcion) {

@@ -108,7 +108,7 @@ public class Main {
 						apartamento = new Apartamento(idInmueble, direccion, canon, tamano, numeroHabitaciones, 
 								numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, 
 								contrato, estadoArriendoInmueble, numeroDePiso);
-						
+						Apartamento.adicionarApartamento(apartamento);
 						System.out.println("Apartamento registrado exitosamente");
 						
 						break;
@@ -117,6 +117,7 @@ public class Main {
 					apartamento = new Apartamento(idInmueble, direccion, canon, tamano, numeroHabitaciones, 
 							numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, 
 							contrato, estadoArriendoInmueble, numeroDePiso);
+					Apartamento.adicionarApartamento(apartamento);
 					
 					System.out.println("\nRegistre los datos del inquilino al que arrendo el apartamento\n");
 					System.out.println("Documento de identidad del inquilino:\n");
@@ -140,6 +141,7 @@ public class Main {
 					
 					inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
 							correo, contrato);
+					Inquilino.adicionarInquilino(inquilino);
 					
 					System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
 							+ "inquilino actual");
@@ -155,7 +157,8 @@ public class Main {
 					LocalDate fechaFin = LocalDate.parse(fFin);
 					
 					contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, apartamento, 
-							inquilino, true);					
+							inquilino, true);
+					Contrato.adicionarContrato(contrato);
 					contrato.getInquilino().setContrato(contrato);
 					apartamento.setContrato(contrato);
 					
@@ -179,6 +182,7 @@ public class Main {
 					casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 							balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, estadoArriendoInmueble, 
 							areaAireLibre);
+					Casa.adicionarCasa(casa);
 					System.out.println("\nCasa registrada exitosamente\n");
 					break;
 				}
@@ -186,7 +190,8 @@ public class Main {
 				casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 						balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, 
 						estadoArriendoInmueble, areaAireLibre);
-				
+				Casa.adicionarCasa(casa);
+
 				System.out.println("\nRegistre los datos del inquilino al que arrendo la casa\n");
 				System.out.println("Documento de identidad del inquilino:\n");
 				String idInquilino = sc.next();
@@ -209,7 +214,7 @@ public class Main {
 				
 				inquilino = new Inquilino(idInquilino, nombreInquilino, genero, fecha, telefono, 
 						correo, contrato);
-				
+				Inquilino.adicionarInquilino(inquilino);
 				System.out.println("\nEspecifique, con los siguientes datos, el contrato con el "
 						+ "inquilino actual");
 				System.out.println("\nNumero de identificacion del contrato");
@@ -223,7 +228,8 @@ public class Main {
 				String fFin = sc.next();
 				LocalDate fechaFin = LocalDate.parse(fFin);
 				
-				contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, casa, inquilino, true);					
+				contrato = new Contrato(idContrato, null, fechaInicio, fechaFin, casa, inquilino, true);
+				Contrato.adicionarContrato(contrato);
 				contrato.getInquilino().setContrato(contrato);
 				casa.setContrato(contrato);
 				
@@ -242,7 +248,7 @@ public class Main {
 					String inmueble = sc.next();
 					if(inmueble.equalsIgnoreCase("casas")) {
 						short cont = 1;
-						for(Casa casa : Casa.getListado()) {
+						for(Casa casa : Casa.getCasas()) {
 							System.out.println("Casa " + cont + ".\nDireccion: " + casa.getDireccion());
 						}
 						
@@ -250,7 +256,7 @@ public class Main {
 					}
 					
 					short cont = 1;
-					for(Apartamento apartamento : Apartamento.getListado()) {
+					for(Apartamento apartamento : Apartamento.getApartamentos()) {
 						System.out.println("Apartamento " + cont + ".\nDireccion: " + apartamento.getDireccion());
 					}
 					
@@ -263,7 +269,7 @@ public class Main {
 				String inmueble = sc.next();
 				boolean encontrado = false;
 				if(inmueble.equalsIgnoreCase("casa")) {
-					for(Casa casa : Casa.getListado()) {
+					for(Casa casa : Casa.getCasas()) {
 						if(casa.getId() == id) {
 							encontrado = true;
 							
@@ -279,7 +285,7 @@ public class Main {
 					break;
 				}
 				
-				for(Apartamento apartamento : Apartamento.getListado()) {
+				for(Apartamento apartamento : Apartamento.getApartamentos()) {
 					if(apartamento.getId() == id) {
 						encontrado = true;
 						System.out.println(apartamento.mostrarInmueble());
@@ -301,7 +307,7 @@ public class Main {
 				if (respuestacasa.equalsIgnoreCase("Apartamento")) {
 					System.out.println("\nEscriba el Id del Apartamento sobre el que quiere ver el historial de contratos ");
 					int idrequeridoapto= sc.nextInt();
-					for (Inmueble inmueble : Apartamento.getListado()) {
+					for (Inmueble inmueble : Apartamento.getApartamentos()) {
 						if (inmueble.getId()==idrequeridoapto) {
 							System.out.println(inmueble.historialContratos());
 							break;
@@ -313,7 +319,7 @@ public class Main {
 				if (respuestacasa.equalsIgnoreCase("Casa")) {
 					System.out.println("\nEscriba el Id de la Casa sobre el que quiere ver el historial de contratos ");
 					int idrequeridocasa= sc.nextInt();
-					for (Inmueble inmueble : Casa.getListado()) {
+					for (Inmueble inmueble : Casa.getCasas()) {
 						if (inmueble.getId()==idrequeridocasa) {
 							System.out.println(inmueble.historialContratos());
 							break;
