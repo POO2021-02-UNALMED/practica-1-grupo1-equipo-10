@@ -20,12 +20,16 @@ public class Main {
 			System.out.println("1. Crear Inmueble");
 			System.out.println("2. Visualizar Inmuebles creados");
 			System.out.println("3. Visualizar Contratos");
-			System.out.println("4. Visualizar Calendario (Notificaciones de Pago y Estado de Inmueble\n");
+			System.out.println("4. Visualizar Calendario (Notificaciones de Pago y Estado de Inmueble)");
+			System.out.println("0. Si desea finalizar el programa\n");
 			
 			byte seleccion = sc.nextByte();
 			
 			switch(seleccion) {
-			
+			case 0:{
+				control=0;
+				break;
+			}
 			case 1:{
 				
 				Inquilino inquilino = null;
@@ -173,7 +177,7 @@ public class Main {
 					casa = new Casa(idInmueble, direccion, canon, tamano, numeroHabitaciones, numeroBanos, 
 							balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble, contrato, estadoArriendoInmueble, 
 							areaAireLibre);
-					
+					System.out.println("\nCasa registrada exitosamente\n");
 					break;
 				}
 				
@@ -289,8 +293,34 @@ public class Main {
 			}
 			
 			case 3:{
-				System.out.println("\nSe visualizan los contratos");
-				break;
+				System.out.println("\n¿El inmueble que va a buscar es una casa o un apartamento?");
+				String respuestacasa = sc.next();
+				if (respuestacasa.equalsIgnoreCase("Apartamento")) {
+					System.out.println("\nEscriba el Id del Apartamento sobre el que quiere ver el historial de contratos ");
+					int idrequeridoapto= sc.nextInt();
+					for (Inmueble inmueble : Apartamento.getListado()) {
+						if (inmueble.getId()==idrequeridoapto) {
+							System.out.println(inmueble.historialContratos());
+							break;
+						}
+					}
+					System.out.println("No se encontró un apartamento con el id ingresado");
+					break;
+				}
+				if (respuestacasa.equalsIgnoreCase("Casa")) {
+					System.out.println("\nEscriba el Id de la Casa sobre el que quiere ver el historial de contratos ");
+					int idrequeridocasa= sc.nextInt();
+					for (Inmueble inmueble : Casa.getListado()) {
+						if (inmueble.getId()==idrequeridocasa) {
+							System.out.println(inmueble.historialContratos());
+							break;
+						}
+					}
+					System.out.println("No se encontró una casa con el id ingresado");
+					break;
+				}
+				
+				
 			}
 			
 			case 4:{
@@ -299,12 +329,15 @@ public class Main {
 			}
 			
 			}
-			
-			System.out.println("\nDesea realizar otra operacion? (Responder 'Si' o 'No'):\n");
-			String respuesta = sc.next();
-			if(respuesta.equals("No")) {
-				control = 0;
+			if (control==1) {
+				System.out.println("\nDesea realizar otra operacion? (Responder 'Si' o 'No'):\n");
+				String respuesta = sc.next();
+				if(respuesta.equals("No")) {
+					control = 0;
+				}
 			}
+		
+			
 		
 		}
 		

@@ -20,7 +20,7 @@ public abstract class Inmueble implements Serializable {
     private boolean estadoFisicoInmueble;
     private Contrato contrato;
     private boolean estadoArriendoInmueble;
-    private ArrayList<Contrato> historialContratos;
+    // private ArrayList<Contrato> historialContratos;
     //inicio serializacion      
     private static final long serialVersionUID = 1L;
     private static LinkedList<Inmueble> inmuebles = new LinkedList<Inmueble>();
@@ -62,12 +62,16 @@ public abstract class Inmueble implements Serializable {
     //getter and setter
 
 
-    public ArrayList<Contrato> getHistorialContratos() {
-        return historialContratos;
-    }
+   
 
-    public void setHistorialContratos(ArrayList<Contrato> historialContratos) {
-        this.historialContratos = historialContratos;
+    public ArrayList<String> historialContratos(){
+    	ArrayList<String> historial = new ArrayList<>();
+    	for(Contrato contrato : Contrato.getListado()){
+    		if(contrato.getInmueble().getId() == this.getId()){
+    			historial.add(contrato.toString());
+    		}
+    	}
+    	return historial;
     }
 
     public boolean isEstadoFisicoInmueble() {
@@ -197,14 +201,7 @@ public abstract class Inmueble implements Serializable {
         }
     }
 
-    public ArrayList<String> historialDeContratos(){
-        ArrayList<String> listadoContrato = new ArrayList<>();
-
-        for (Contrato contrato: getHistorialContratos()) {
-            listadoContrato.add(contrato.toString());
-        }
-        return listadoContrato;
-    }
+    
 
     public abstract String mostrarInmueble();
 
