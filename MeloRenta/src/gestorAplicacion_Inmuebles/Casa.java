@@ -60,14 +60,14 @@ public class Casa extends Inmueble implements Serializable{
 
 	@Override
     public String mostrarInmueble() {
-		if ((getContrato()).equals(null)) {
+		if ((getContrato())!=(null)) {
         return "Casa{" +
                 "id de la casa= " + getId() +
                 "direccion de la casa= " + getDireccion() +
                 "canon de la casa= " + getCanon() +
-                "tamaño de la casa= " + getTamano() +
+                "tamano de la casa= " + getTamano() +
                 "numero de habitaciones de la casa = " + getNumeroHabitaciones() +
-                "numero de baños de la casa= " + getNumeroBanos() +
+                "numero de banos de la casa= " + getNumeroBanos() +
                 "La casa tiene balcon?= "  + isBalcon() +
                 "La casa tiene patio?= " + isPatio() +
                 "La casa tiene cuarto util?= " + isCuartoUtil() +
@@ -83,9 +83,9 @@ public class Casa extends Inmueble implements Serializable{
 		                "id de la casa= " + getId() +
 		                "direccion de la casa= " + getDireccion() +
 		                "canon de la casa= " + getCanon() +
-		                "tamaño de la casa= " + getTamano() +
+		                "tamano de la casa= " + getTamano() +
 		                "numero de habitaciones de la casa = " + getNumeroHabitaciones() +
-		                "numero de baños de la casa= " + getNumeroBanos() +
+		                "numero de banos de la casa= " + getNumeroBanos() +
 		                "La casa tiene balcon?= "  + isBalcon() +
 		                "La casa tiene patio?= " + isPatio() +
 		                "La casa tiene cuarto util?= " + isCuartoUtil() +

@@ -60,14 +60,14 @@ public class Apartamento extends Inmueble implements Serializable {
 
 	@Override
     public  String mostrarInmueble() {
-		if ((getContrato()).equals(null)) {
+		if ((getContrato())!=(null)) {
         return "Apartamento{" +
                 "id del apartamento= " + getId() +
                 "direccion del apartamento= " + getDireccion() +
                 "canon del apartamento= " + getCanon() +
-                "tamaño del apartamento= " + getTamano() +
+                "tamano del apartamento= " + getTamano() +
                 "numero de habitaciones del apartamento = " + getNumeroHabitaciones() +
-                "numero de baños del apartamento= " + getNumeroBanos() +
+                "numero de banos del apartamento= " + getNumeroBanos() +
                 "El apartamento tiene balcon?= "  + isBalcon() +
                 "El apartamento tiene patio?= " + isPatio() +
                 "El apartamento tiene cuarto util?= " + isCuartoUtil() +
@@ -83,9 +83,9 @@ public class Apartamento extends Inmueble implements Serializable {
                 "id del apartamento= " + getId() +
                 "direccion del apartamento= " + getDireccion() +
                 "canon del apartamento= " + getCanon() +
-                "tamaño del apartamento= " + getTamano() +
+                "tamano del apartamento= " + getTamano() +
                 "numero de habitaciones del apartamento = " + getNumeroHabitaciones() +
-                "numero de baños del apartamento= " + getNumeroBanos() +
+                "numero de banos del apartamento= " + getNumeroBanos() +
                 "El apartamento tiene balcon?= "  + isBalcon() +
                 "El apartamento tiene patio?= " + isPatio() +
                 "El apartamento tiene cuarto util?= " + isCuartoUtil() +

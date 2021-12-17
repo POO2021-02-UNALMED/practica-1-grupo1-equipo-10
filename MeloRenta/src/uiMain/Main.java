@@ -264,7 +264,8 @@ public class Main {
 					for(Casa casa : Casa.getListado()) {
 						if(casa.getId() == id) {
 							encontrado = true;
-							casa.mostrarInmueble();
+							
+							System.out.println(casa.mostrarInmueble());
 							break;
 						}
 					}
@@ -279,7 +280,7 @@ public class Main {
 				for(Apartamento apartamento : Apartamento.getListado()) {
 					if(apartamento.getId() == id) {
 						encontrado = true;
-						apartamento.mostrarInmueble();
+						System.out.println(apartamento.mostrarInmueble());
 						break;
 					}
 				}
