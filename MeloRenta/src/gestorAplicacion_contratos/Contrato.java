@@ -47,7 +47,7 @@ public class Contrato implements Serializable {
         this.inmueble = inmueble;
         this.inquilino = inquilino;
         this.estado = estado;
-        listado.add(this);
+        listado.add(this); //Dentro de la lista se añade el objeto creado por el constructor
     }
     
     //getter and setter
@@ -113,10 +113,10 @@ public class Contrato implements Serializable {
 	}
     //fin getter and setter    
 
-    public void renovar_contrato(){ //Aqui tomamos la fecha de finalización del contrato y le sumamos 30 días.
+    public void renovar_contrato(){ 
     	this.fecha_fin.plusDays(30);
     }    
-
+    //Aqui tomamos la fecha de finalización del contrato y le sumamos 30 días.
     public String notificar_cierre_contrato(){
     	if (this.fecha_fin == (LocalDate.now().plusDays(1))) {
     		this.estado= !this.estado;
@@ -127,12 +127,14 @@ public class Contrato implements Serializable {
     	return notificacion2;
     	
     }
+    //Este metodo se encarga de cerrar el contrato en caso de que la fecha fin sea igual a la fecha actual más 1 dias y notifique de esto al usuario.
     
     public void inhabilitarContrato() {
     	if (this.estado = true) {
 			this.estado= !this.estado;
     	}
     }
+    //Este método se encarga de evaluar si el estado del contrato es true y en este se cambia a false. En caso de que esté en false no se hace nada.
 
 
     public String mostrar_contrato() {
@@ -146,6 +148,6 @@ public class Contrato implements Serializable {
                 ", estado=" + estado +
                 '}';
     }
-
+  //Este método se encarga de presentar toda la información del objeto contrato
 	
 }

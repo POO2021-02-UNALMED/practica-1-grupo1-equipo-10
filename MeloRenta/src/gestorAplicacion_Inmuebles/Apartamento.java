@@ -97,5 +97,5 @@ public class Apartamento extends Inmueble implements Serializable {
                 '}';
 		}
     }
-
+	//Este método se encarga de presentar toda la información del objeto apartamento
 }

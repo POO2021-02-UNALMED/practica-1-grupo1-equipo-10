@@ -97,6 +97,6 @@ public class Casa extends Inmueble implements Serializable{
 		                '}';
 		}
     }
-
+	//Este método se encarga de presentar toda la información del objeto casa
 
 }

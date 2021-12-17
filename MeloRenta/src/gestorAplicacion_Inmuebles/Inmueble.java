@@ -30,10 +30,10 @@ public abstract class Inmueble implements Serializable {
 		return inmuebles;
 	}
 
-	public static void adicionarInmueble(Inmueble inmueble) {
+	public static void adicionarInmueble(Inmueble inmueble) { 
 		inmuebles.add(inmueble);
 	}
-    
+    //El metodo adicionarInmueble toma como parametro un objeto tipo inmueble y lo agrega a la linked list inmuebles
 
 	public static void setInmuebles(LinkedList<Inmueble> inmuebles) {
 		Inmueble.inmuebles = inmuebles;
@@ -73,6 +73,7 @@ public abstract class Inmueble implements Serializable {
     	}
     	return historial;
     }
+    //Este metodo recorre la lista estática de la clase contrato llamada listado luego si se cumple la condición del if añade a la lista historial el to string del objeto contrato
 
     public boolean isEstadoFisicoInmueble() {
         return estadoFisicoInmueble;
@@ -192,7 +193,7 @@ public abstract class Inmueble implements Serializable {
             return "El inmueble no necesita reparacion";
         }
     }
-
+    //Este metodo toma el valor del estado físico del inmueble y se encarga de evaluar si el inmueble necesita reparación o si no la necesita
     public String consultarEstado(){
         if (isEstadoArriendoInmueble()){
             return "El inmueble se encuentra arrendado";
@@ -200,7 +201,7 @@ public abstract class Inmueble implements Serializable {
             return "El inmueble no se encuentra arrendado";
         }
     }
-
+    //Este metodo toma el valor de la variable estado arriendo y se encarga de evaluar si el inmueble se encuentra arrendado o no. 
     
 
     public abstract String mostrarInmueble();

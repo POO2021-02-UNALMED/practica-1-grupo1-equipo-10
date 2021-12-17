@@ -120,4 +120,5 @@ public class Inquilino implements Serializable {
                 ", contrato=" + contrato +
                 '}';
     }
+    //Este método se encarga de presentar toda la información del objeto inquilino
 }

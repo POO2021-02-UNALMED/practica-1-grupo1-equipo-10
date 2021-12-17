@@ -78,10 +78,10 @@ public class Factura implements Serializable {
 			}
 		}
     }
-
+    //Este metodo se encarga de crear una lista de los días de pago en el intervalo entre la fecha inicio y la fecha fin.
     
 
-    //falta el metodo toString
+    
     public String toString() {
         return "Factura{" +
                 "id=" + id +
@@ -89,4 +89,5 @@ public class Factura implements Serializable {
                 ", Contrato=" + contrato +
                 '}';
     }
+    //Este método se encarga de presentar toda la información del objeto factura
 }
