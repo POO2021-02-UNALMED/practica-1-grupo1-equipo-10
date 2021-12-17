@@ -8,7 +8,7 @@ import gestorAplicacion_Inmuebles.Inmueble;
 
 public class Contrato implements Serializable {
     private double id;
-    private File clausula;
+    private String clausula;
     private LocalDate fecha_inicio;
     private LocalDate fecha_fin;
     private Inmueble inmueble;
@@ -38,7 +38,7 @@ public class Contrato implements Serializable {
     
     
 
-    public Contrato(double id, File clausula, LocalDate fecha_inicio, LocalDate fecha_fin,
+    public Contrato(double id, String clausula, LocalDate fecha_inicio, LocalDate fecha_fin,
                     Inmueble inmueble, Inquilino inquilino, boolean estado) {
         this.id = id;
         this.clausula = clausula;
@@ -60,11 +60,11 @@ public class Contrato implements Serializable {
         this.id = id;
     }
 
-    public File getClausula() {
+    public String getClausula() {
         return clausula;
     }
 
-    public void setClausula(File clausula) {
+    public void setClausula(String clausula) {
         this.clausula = clausula;
     }
 
