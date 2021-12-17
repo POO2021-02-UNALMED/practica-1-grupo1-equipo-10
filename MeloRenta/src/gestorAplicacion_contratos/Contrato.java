@@ -14,6 +14,7 @@ public class Contrato implements Serializable {
     private Inmueble inmueble;
     private Inquilino inquilino;
     private boolean estado;
+    private static ArrayList<Contrato> listado = new ArrayList<Contrato>();
     
     //inicio serializacion        
     private static final long serialVersionUID = 1L;
@@ -46,8 +47,9 @@ public class Contrato implements Serializable {
         this.inmueble = inmueble;
         this.inquilino = inquilino;
         this.estado = estado;
+        listado.add(this);
     }
-
+    
     //getter and setter
 
     public double getId() {
@@ -105,7 +107,10 @@ public class Contrato implements Serializable {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
+    public static ArrayList<Contrato> getListado() {
+		
+		return listado;
+	}
     //fin getter and setter    
 
     public void renovar_contrato(){ //Aqui tomamos la fecha de finalización del contrato y le sumamos 30 días.
@@ -141,4 +146,6 @@ public class Contrato implements Serializable {
                 ", estado=" + estado +
                 '}';
     }
+
+	
 }
