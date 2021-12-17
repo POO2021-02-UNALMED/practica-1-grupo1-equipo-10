@@ -60,6 +60,7 @@ public class Casa extends Inmueble implements Serializable{
 
 	@Override
     public String mostrarInmueble() {
+		if ((getContrato()).equals(null)) {
         return "Casa{" +
                 "id de la casa= " + getId() +
                 "direccion de la casa= " + getDireccion() +
@@ -76,6 +77,25 @@ public class Casa extends Inmueble implements Serializable{
                 "Estado del arriendo de la casa?= " + super.consultarEstado() +
                 "areas al aire libre de la casa=" + getAreaAireLibre() +
                 '}';
+		}
+		else {
+			 return "Casa{" +
+		                "id de la casa= " + getId() +
+		                "direccion de la casa= " + getDireccion() +
+		                "canon de la casa= " + getCanon() +
+		                "tamaño de la casa= " + getTamano() +
+		                "numero de habitaciones de la casa = " + getNumeroHabitaciones() +
+		                "numero de baños de la casa= " + getNumeroBanos() +
+		                "La casa tiene balcon?= "  + isBalcon() +
+		                "La casa tiene patio?= " + isPatio() +
+		                "La casa tiene cuarto util?= " + isCuartoUtil() +
+		                "Numero de parqueaderos de la casa= " + getParqueadero() +
+		                "Estado fisico de la casa?= " + super.recordarReparacion() +
+		                "Esta casa no tiene ning�n contrato activo "+
+		                "Estado del arriendo de la casa?= " + super.consultarEstado() +
+		                "areas al aire libre de la casa=" + getAreaAireLibre() +
+		                '}';
+		}
     }
 
 

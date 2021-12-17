@@ -59,7 +59,8 @@ public class Apartamento extends Inmueble implements Serializable {
 	}
 
 	@Override
-    public String mostrarInmueble() {
+    public  String mostrarInmueble() {
+		if ((getContrato()).equals(null)) {
         return "Apartamento{" +
                 "id del apartamento= " + getId() +
                 "direccion del apartamento= " + getDireccion() +
@@ -76,6 +77,25 @@ public class Apartamento extends Inmueble implements Serializable {
                 "Estado del arriendo del apartamento?= " + super.consultarEstado() +
                 "numero de piso del apartamento=" + getNumeroDePiso() +
                 '}';
+		}
+		else {
+		return "Apartamento{" +
+                "id del apartamento= " + getId() +
+                "direccion del apartamento= " + getDireccion() +
+                "canon del apartamento= " + getCanon() +
+                "tamaño del apartamento= " + getTamano() +
+                "numero de habitaciones del apartamento = " + getNumeroHabitaciones() +
+                "numero de baños del apartamento= " + getNumeroBanos() +
+                "El apartamento tiene balcon?= "  + isBalcon() +
+                "El apartamento tiene patio?= " + isPatio() +
+                "El apartamento tiene cuarto util?= " + isCuartoUtil() +
+                "Numero de parqueaderos del apartamento= " + getParqueadero() +
+                "Estado fisico del apartamento?= " + super.recordarReparacion() +
+                "Este apartamento no tiene ning�n contrato activo "+
+                "Estado del arriendo del apartamento?= " + super.consultarEstado() +
+                "numero de piso del apartamento=" + getNumeroDePiso() +
+                '}';
+		}
     }
 
 }
