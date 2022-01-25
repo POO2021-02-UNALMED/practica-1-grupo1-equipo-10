@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/MeloRenta/src/gestorAplicacion_Inmuebles/Apartamento.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/MeloRenta/src/gestorAplicacion_Inmuebles/Inmueble.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/MeloRenta/src/gestorAplicacion_contratos/Contrato.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/MeloRenta/src/uiMain/Main.java" charset="windows-1252" />
+  </component>
+</project>
