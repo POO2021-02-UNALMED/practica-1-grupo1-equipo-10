@@ -1,4 +1,6 @@
-class casa:
+from gestorAplicacion_contratos import Contrato
+
+class Apartamento:
     apartamentos = []
 
     # Constructor

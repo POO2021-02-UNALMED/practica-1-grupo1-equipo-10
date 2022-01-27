@@ -1,4 +1,4 @@
-from GestorAplicacion_Contratos import Contrato;
+from gestorAplicacion_contratos import Contrato
 
 class Inmueble:
     inmuebles = []
