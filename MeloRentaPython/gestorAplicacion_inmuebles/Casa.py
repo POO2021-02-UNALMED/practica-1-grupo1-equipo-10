@@ -1,14 +1,15 @@
-from gestorAplicacion_contratos import Contrato
 
 class Casa:
     casas = []
 
     #Constructor
 
-    def __init__(self):
+    def __init__(self, id, direccion, canon, tamano, numeroHabitaciones,
+                 numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble,
+                 contrato, estadoArriendoInmueble, areaAireLibre):
         super().__init__(self, id, direccion, canon, tamano, numeroHabitaciones,
                          numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble,
-                         contrato, estadoArriendoInmueble, areaAireLibre)
+                         contrato, estadoArriendoInmueble)
         self._areaAireLibre = areaAireLibre
 
     #Getters y Setters
@@ -32,7 +33,7 @@ class Casa:
     #Fin Getters y Setters
 
     def mostrarInmueble(self):
-        if(self.contrato != null):
+        if(self.contrato != None):
             return "Casa {" + "id de la casa= " + self.getId() +", direccion de la casa= " + self.getDireccion() +",\ncanon de la casa= " + self.getCanon() +", tamano de la casa= " + self.getTamano() +",\nnumero de habitaciones de la casa = " + self.getNumeroHabitaciones() +",\nnumero de banos de la casa= " + self.getNumeroBanos() +",\nLa casa tiene balcon?= "  + self.isBalcon() +", La casa tiene patio?= " + self.isPatio() +",\nLa casa tiene cuarto util?= " + self.isCuartoUtil() +",\nNumero de parqueaderos de la casa= " + self.getParqueadero() +",\nEstado fisico de la casa?= " + super.recordarReparacion() +",\nid del contrato de la casa= " + self.getContrato().getId() +",\nEstado del arriendo de la casa?= " + super.consultarEstado() +",\nareas al aire libre de la casa=" + self.getAreaAireLibre() +'}'
         else:
             return "Casa {" + "id de la casa= " + self.getId() +", direccion de la casa= " + self.getDireccion() +",\ncanon de la casa= " + self.getCanon() +", tamano de la casa= " + self.getTamano() +",\nnumero de habitaciones de la casa = " + self.getNumeroHabitaciones() +",\nnumero de banos de la casa= " + self.getNumeroBanos() +",\nLa casa tiene balcon?= "  + self.isBalcon() +", La casa tiene patio?= " + self.isPatio() +",\nLa casa tiene cuarto util?= " + self.isCuartoUtil() +",\nNumero de parqueaderos de la casa= " + self.getParqueadero() +",\nEstado fisico de la casa?= " + super.recordarReparacion() +",\nEsta casa no tiene ning�n contrato activo  " +",\nEstado del arriendo de la casa?= " + super.consultarEstado() +",\nareas al aire libre de la casa=" + self.getAreaAireLibre() +'}'
