@@ -1,5 +1,5 @@
-
-class Casa:
+import Inmueble
+class Casa(Inmueble):
     casas = []
 
     #Constructor
@@ -13,16 +13,17 @@ class Casa:
         self._areaAireLibre = areaAireLibre
 
     #Getters y Setters
-
+    @classmethod
     def getCasas(cls):
         return cls.casas
 
+    @classmethod
     def setCasas(cls, casas):
         cls.casas = casas
 
+    @classmethod
     def adicionarCasa(cls, casa):
         cls.casas.append(casa)
-
 
     def getareaAireLibre(self):
         return self._areaAireLibre

@@ -1,4 +1,4 @@
-from gestorAplicacion_contratos import Contrato
+from gestorAplicacion_contratos.Contrato import Contrato
 
 class Inmueble:
     inmuebles = []
@@ -23,7 +23,7 @@ class Inmueble:
 
 
     #Getters y Setters
-
+    @classmethod
     def getInmuebles(cls):
         return cls.inmuebles
 
@@ -67,7 +67,7 @@ class Inmueble:
         return self._estadoArriendoInmueble
 
     #fin getters
-
+    @classmethod
     def setInmuebles(cls, inmuebles):
         cls.inmuebles = inmuebles
 
@@ -111,7 +111,7 @@ class Inmueble:
         self._estadoArriendoInmueble = estadoArriendoInmueble
 
     #Fin Getters y Setters
-
+    @classmethod
     def adicionarInmueble(cls, inmueble):
         cls.inmuebles.append(inmueble)
 
