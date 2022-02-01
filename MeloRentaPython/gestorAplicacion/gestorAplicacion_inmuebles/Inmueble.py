@@ -2,6 +2,7 @@ from gestorAplicacion_contratos.Contrato import Contrato
 
 class Inmueble:
     inmuebles = []
+    lista_inmuebles =[]
     #Constructor
 
     def __init__(self, id, direccion, canon, tamano, numeroHabitaciones,
@@ -20,6 +21,7 @@ class Inmueble:
         self._estadoFisicoInmueble = estadoFisicoInmueble
         self._contrato = contrato
         self._estadoArriendoInmueble = estadoArriendoInmueble
+        Inmueble.lista_inmuebles.append(self)
 
 
     #Getters y Setters

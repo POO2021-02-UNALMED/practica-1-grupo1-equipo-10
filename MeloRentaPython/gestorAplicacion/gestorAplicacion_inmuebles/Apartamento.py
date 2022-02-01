@@ -1,7 +1,7 @@
 import Inmueble
 class Apartamento(Inmueble):
     apartamentos = []
-
+    lista_apartamentos = []
     # Constructor
 
     def __init__(self, id, direccion, canon, tamano, numeroHabitaciones,
@@ -11,6 +11,8 @@ class Apartamento(Inmueble):
                          numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble,
                          contrato, estadoArriendoInmueble)
         self._numeroDePiso = numeroDePiso
+        Apartamento.lista_apartamentos.append(self)
+        
 
     #Getters y Setters
     @classmethod

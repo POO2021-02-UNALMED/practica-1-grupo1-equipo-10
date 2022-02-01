@@ -1,7 +1,7 @@
 import Inmueble
 class Casa(Inmueble):
     casas = []
-
+    lista_casas=[]
     #Constructor
 
     def __init__(self, id, direccion, canon, tamano, numeroHabitaciones,
@@ -11,6 +11,7 @@ class Casa(Inmueble):
                          numeroBanos, balcon, patio, cuartoUtil, parqueadero, estadoFisicoInmueble,
                          contrato, estadoArriendoInmueble)
         self._areaAireLibre = areaAireLibre
+        Casa.lista_casas.append(self)
 
     #Getters y Setters
     @classmethod

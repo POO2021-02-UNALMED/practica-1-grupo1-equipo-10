@@ -1,6 +1,7 @@
 import datetime as dt
 
 class Contrato():
+    lista_contratos = []
 
     def __init__(self, id, clausula, fechaInicio, fechaFin, inmueble, inquilino, estado):
         self._id = id
@@ -10,6 +11,7 @@ class Contrato():
         self._inmueble = inmueble
         self._inquilino = inquilino
         self._estado = estado
+        Contrato.lista_contratos.append(self)
 
     # Getters and Setters
 

@@ -1,7 +1,7 @@
 import datetime as dt
 
 class Inquilino():
-
+    lista_inquilinos=[]
     def __init__(self, documentoIdentidad, nombreCompleto, genero, fechaNacimiento, telefono, correo, contrato):
         self._documentoIdentidad = documentoIdentidad
         self._nombreCompleto = nombreCompleto
@@ -10,6 +10,7 @@ class Inquilino():
         self._telefono = telefono
         self._correo = correo
         self._contrato = contrato
+        Inquilino.lista_inquilinos.append(self)
 
     # Getters and Setters
 

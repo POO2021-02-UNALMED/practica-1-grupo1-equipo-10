@@ -1,11 +1,13 @@
 import datetime as dt
 
 class Factura():
+    lista_facturas =[]
 
     def __init__(self, id, estado, contrato):
         self._id = id
         self._estado = estado
         self._contrato = contrato
+        Factura.lista_facturas.append(self)
 
     # Getters and Setters
 
