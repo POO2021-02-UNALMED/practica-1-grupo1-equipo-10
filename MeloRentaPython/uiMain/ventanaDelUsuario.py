@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.messagebox import  *
-
+import inicio as window2
 
 window = Tk()
 window.geometry("550x450")
@@ -18,6 +18,8 @@ def funcionAplicacion():
 
 def funcionSalir():
     showinfo("Salir", "retorna a la Ventana de Inicio del programa")
+    window2.mainloop()
+    window.destroy()
 
 def funcionProcesoYConsultas():
     showinfo("Proceso y Consultas", "Funcionalidades: \n Crear inmuebles\n Asociar Inquilino a inmuebles\n Creación de contratos\n Recordar la reparación de inmuebles\n Calendario para pagos del inmueble ")
@@ -125,7 +127,7 @@ botonBorrar.place(relx=0.55, relwidth=0.2, relheight=0.6)
 
 
 
-window.mainloop()
+#window.mainloop()
 
 
 #Falta organizar la opcion salir del menu

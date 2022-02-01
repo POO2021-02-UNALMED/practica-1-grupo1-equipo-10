@@ -2,6 +2,7 @@
 from doctest import master
 from tkinter import *
 from turtle import width
+import ventanaDelUsuario as window2
 
 c = 0 # Una ayuda para cambiar imagen de sistema
 d = 0 # Una ayuda para cambiar texto e imagen de integrantes
@@ -85,7 +86,7 @@ description.place(x=5,y=5)
 # Se define el evento 'cambioImagen' para la imagen del sistema del menu de inicio
 def cambioImagen(e):
     global c
-    imgList = ["img\img1.png","img\img2.png", "img\img3.png", "img\img4.png", "img\img5.png"]
+    imgList = ["uiMain\img\img1.png","uiMain\img\img2.png", "uiMain\img\img3.png", "uiMain\img\img4.png", "uiMain\img\img5.png"]
     if c > len(imgList)-1:
         c = 0
     image = PhotoImage(file=imgList[c])
@@ -102,8 +103,12 @@ label['image'] = img
 label.place(x=20, y=5)
 label.bind('<Enter>', cambioImagen)
 
+def ingreso():
+    window2.mainloop()
+    window.destroy()
+
 # Boton para ingresar al sistema
-btnIngreso = Button(master=frameP4, text="Ingresar al sistema", width=20, height=2)
+btnIngreso = Button(master=frameP4, text="Ingresar al sistema", width=20, height=2, command=ingreso)
 btnIngreso.place(x=100,y=257)
 
 # Se define el evento 'cambioHojaVida' al clickear en la region de texto que contiene la hoja de vida de cada integrante
@@ -112,15 +117,15 @@ def cambioHojaVida(e):
     integrantes = [
                     {
                         'hojaVida' : "Aura Marcela Arbeláez Aristizabal:\ntengo 21 años y estudio ingenieria de\nsistemas en la universidad nacional. Trabajopaseando perros por mi casa. Me gustan los\nperros, comer hamburguesas, los videojuegos y echar chisme.",
-                        'imagen' : [["img\Aura1.png","img\Aura2.png"],["img\Aura3.png","img\Aura4.png"]]
+                        'imagen' : [["uiMain\img\Aura1.png","uiMain\img\Aura2.png"],["uiMain\img\Aura3.png","uiMain\img\Aura4.png"]]
                     },
                     {
                         'hojaVida' : "Cristian Giraldo Villegas:\n21 años. Estudiante perteneciente a la\ncarrera Ing. Sistemas e Informatica de la\nUniversidad Nacional de Colombia. Le gustan los comics japoneses y Java.",
-                        'imagen' : [["img\Cristian1.png","img\Cristian2.png"],["img\Cristian3.png","img\Cristian4.png"]]
+                        'imagen' : [["uiMain\img\Cristian1.png","uiMain\img\Cristian2.png"],["uiMain\img\Cristian3.png","uiMain\img\Cristian4.png"]]
                     },
                     {
                         'hojaVida' : "Juan Pablo Rivera Sierra:\n21 años. Estudiante de octavo semestre en laUniversidad Nacional de Colombia. Trabaja\ncomo asistente de programacion en Urcube. Legustan los videojuegos y Python.",
-                        'imagen' : [["img\Juan1.png","img\Juan2.png"],["img\Juan3.png","img\Juan4.png"]]
+                        'imagen' : [["uiMain\img\Juan1.png","uiMain\img\Juan2.png"],["uiMain\img\Juan3.png","uiMain\img\Juan4.png"]]
                     }
                 ]
     if d > len(integrantes)-1:
@@ -159,25 +164,25 @@ hojaVida.place(x=5,y=3)
 
 # Imagen 1
 lbl1 = Label(frameP6)
-img1 = PhotoImage(file="img\Juan1.png")
+img1 = PhotoImage(file="uiMain\img\Juan1.png")
 img1 = img1.subsample(9)
 lbl1['image'] = img1
 lbl1.grid(row=0, column=0)
 # Imagen 2
 lbl2 = Label(frameP6)
-img2 = PhotoImage(file="img\Juan2.png")
+img2 = PhotoImage(file="uiMain\img\Juan2.png")
 img2 = img2.subsample(9)
 lbl2['image'] = img2
 lbl2.grid(row=0, column=1)
 # Imagen 3
 lbl3 = Label(frameP6)
-img3 = PhotoImage(file="img\Juan3.png")
+img3 = PhotoImage(file="uiMain\img\Juan3.png")
 img3 = img3.subsample(9)
 lbl3['image'] = img3
 lbl3.grid(row=1, column=0)
 # Imagen 4
 lbl4 = Label(frameP6)
-img4 = PhotoImage(file="img\Juan4.png")
+img4 = PhotoImage(file="uiMain\img\Juan4.png")
 img4 = img4.subsample(9)
 lbl4['image'] = img4
 lbl4.grid(row=1, column=1)
