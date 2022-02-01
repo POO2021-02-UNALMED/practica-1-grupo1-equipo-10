@@ -1,5 +1,5 @@
-
-class Apartamento:
+import Inmueble
+class Apartamento(Inmueble):
     apartamentos = []
 
     # Constructor
@@ -13,10 +13,11 @@ class Apartamento:
         self._numeroDePiso = numeroDePiso
 
     #Getters y Setters
-
+    @classmethod
     def getapartamentos(cls):
         return cls.apartamentos
 
+    @classmethod
     def setapartamentos(cls, apartamentos):
         cls.apartamentos = apartamentos
 
@@ -28,9 +29,9 @@ class Apartamento:
 
 
     #Fin Getters y Setters
-
-        def adicionarapartamento(cls, apartamento):
-            cls.apartamentos.append(apartamento)
+    @classmethod
+    def adicionarapartamento(cls, apartamento):
+        cls.apartamentos.append(apartamento)
 
     def mostrarInmueble(self):
         if(self.contrato != None):
