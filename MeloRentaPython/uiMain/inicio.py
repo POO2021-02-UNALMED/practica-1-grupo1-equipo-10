@@ -97,7 +97,7 @@ def cambioImagen(e):
 
 # Imagenes del sistema
 label = Label(frameP4)
-img = PhotoImage(file="img\img1.png")
+img = PhotoImage(file="uiMain\img\img1.png")
 img = img.subsample(2)
 label['image'] = img
 label.place(x=20, y=5)
