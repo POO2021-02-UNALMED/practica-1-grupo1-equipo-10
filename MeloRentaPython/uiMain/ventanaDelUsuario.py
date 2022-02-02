@@ -28,6 +28,29 @@ def funcionAyuda():
     showinfo("Ayuda", "Nombres de los autores de la aplicación: \n Aura Marcela Arbeláez Aristizabal\n Juan Pablo Rivera Sierra \n Cristian Giraldo Villegas ")
 
 
+def funcionTomaDeDatos():
+    codigo = entryCodigo.get("1.0","end")
+    nombre = entryNombre.get("1.0","end")
+    descripcicon = entryDescripcion.get("1.0","end")
+    ubicacion = entryUbicacion.get("1.0","end")
+    print(codigo)
+    print(nombre)
+    print(descripcicon)
+    print(ubicacion)
+
+def funcionBorrarDatos():
+    entryCodigo.delete("1.0","end")
+    entryNombre.delete("1.0","end")
+    entryUbicacion.delete("1.0","end")
+    entryDescripcion.delete("1.0","end")
+
+
+
+
+
+
+
+
 menu1 = Menu(menubar)
 menu2 = Menu(menubar)
 menu3 = Menu(menubar)
@@ -80,7 +103,7 @@ label3.place(relx=0.4,rely = 0.0, relwidth=0.5, relheight=0.1)
 labelCodigo = Label(master=frame2, text="Codigo")
 labelCodigo.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.1)
 
-entryCodigo = Entry()
+entryCodigo = Text()
 entryCodigo.place(relx=0.4,rely = 0.355,relwidth=0.5, relheight=0.06)
 
 
@@ -88,21 +111,21 @@ labelNombre = Label(master=frame2, text="Nombre")
 labelNombre.place(relx=0.1,rely = 0.4,relwidth=0.2, relheight=0.1)
 
 
-entryNombre = Entry()
+entryNombre = Text()
 entryNombre.place(relx=0.4,rely = 0.485,relwidth=0.5, relheight=0.06)
 
 labelDescripcion = Label(master=frame2, text="Descripcion")
 labelDescripcion.place(relx=0.1,rely = 0.6,relwidth=0.2, relheight=0.1)
 
 
-entryDescripcion = Entry()
+entryDescripcion = Text()
 entryDescripcion.place(relx=0.4,rely = 0.625,relwidth=0.5, relheight=0.06)
 
 labelUbicacion = Label(master=frame2, text="Ubicacion")
 labelUbicacion.place(relx=0.1,rely = 0.8,relwidth=0.2, relheight=0.1)
 
 
-entryUbicacion = Entry()
+entryUbicacion = Text()
 entryUbicacion.place(relx=0.4,rely = 0.755,relwidth=0.5, relheight=0.06)
 
 
@@ -119,9 +142,9 @@ entryUbicacion.place(relx=0.4,rely = 0.755,relwidth=0.5, relheight=0.06)
 frame3 = Frame(master=window, width=400, height=50, borderwidth=1, relief="solid")
 frame3.pack(fill='both')
 
-botonAceptar = Button(master=frame3, text="Aceptar")
+botonAceptar = Button(master=frame3, text="Aceptar",command=funcionTomaDeDatos)
 botonAceptar.place(relx=0.3,relwidth=0.2, relheight=0.6)
-botonBorrar = Button(master=frame3, text="Borrar")
+botonBorrar = Button(master=frame3, text="Borrar", command=funcionBorrarDatos)
 botonBorrar.place(relx=0.55, relwidth=0.2, relheight=0.6)
 #FIN3
 
