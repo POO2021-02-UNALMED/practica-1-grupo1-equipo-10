@@ -4,12 +4,12 @@ from gestorAplicacion import *
 from gestorAplicacion import gestorAplicacion_contratos
 from gestorAplicacion import gestorAplicacion_inmuebles
 
-contratos = open("lista_contratos" ,"wbc")
-facturas= open("lista_facturas" ,"wbf")
-inquilinos= open("lista_inquilinos" ,"wbiq")
-apartamentos= open("lista_apartamentos" ,"wba")
-casas = open("lista_casas" ,"wbca")
-inmuebles = open("lista_inmuebles" ,"wbim")
+contratos = open("lista_contratos" ,"wb")
+facturas= open("lista_facturas" ,"wb")
+inquilinos= open("lista_inquilinos" ,"wb")
+apartamentos= open("lista_apartamentos" ,"wb")
+casas = open("lista_casas" ,"wb")
+inmuebles = open("lista_inmuebles" ,"wb")
 
 
 pickle.dump(gestorAplicacion_contratos.Contrato.lista_contratos , contratos)
@@ -26,3 +26,20 @@ inquilinos.close()
 apartamentos.close()
 casas.close()
 inmuebles.close()
+
+
+
+contratosApertura = open("lista_contratos","rb")
+facturasApertura = open("lista_facturas","rb")
+inquilinosApertura = open("lista_inquilinos","rb")
+apartamentosApertura = open("lista_apartamentos","rb")
+casasApertura = open("lista_casas","rb")
+inmueblesApertura = open("lista_inmuebles","rb")
+
+misContratos= pickle.load(contratosApertura)
+misFacturas= pickle.load(facturasApertura)
+misInquilinos =pickle.load(inquilinosApertura)
+misApartamentos =pickle.load(apartamentosApertura)
+misCasas =pickle.load(casasApertura)
+misInmuebles =pickle.load(inmueblesApertura)
+

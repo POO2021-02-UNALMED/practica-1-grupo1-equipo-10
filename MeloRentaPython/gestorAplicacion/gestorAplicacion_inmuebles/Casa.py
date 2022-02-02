@@ -1,4 +1,5 @@
 import Inmueble
+import pickle
 class Casa(Inmueble):
     casas = []
     lista_casas=[]

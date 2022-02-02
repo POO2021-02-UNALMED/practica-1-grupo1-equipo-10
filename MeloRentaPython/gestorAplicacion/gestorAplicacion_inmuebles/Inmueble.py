@@ -1,4 +1,5 @@
 from gestorAplicacion_contratos.Contrato import Contrato
+import pickle
 
 class Inmueble:
     inmuebles = []

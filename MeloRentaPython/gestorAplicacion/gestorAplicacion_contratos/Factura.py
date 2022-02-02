@@ -1,4 +1,5 @@
 import datetime as dt
+import pickle
 
 class Factura():
     lista_facturas =[]
