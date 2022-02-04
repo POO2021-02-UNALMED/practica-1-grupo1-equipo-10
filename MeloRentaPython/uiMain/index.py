@@ -8,6 +8,9 @@ from ManejoErrores.manejoErrores import *
 from ManejoErrores.ErroresExistencia import *
 from ManejoErrores.ErroresFormato import *
 from Bases_de_datos.serializacion import *
+from gestorAplicacion.gestorAplicacion_inmuebles.Apartamento import Apartamento
+from gestorAplicacion.gestorAplicacion_inmuebles.Casa import Casa
+from gestorAplicacion.gestorAplicacion_inmuebles.Inmueble import Inmueble
 
 
 
@@ -323,48 +326,4 @@ misInmuebles =pickle.load(inmueblesApertura)
 
 
 
-def buscarInmueble(self,Id):
-    try:
-        if (type(Id).equals(int)):
-            try:
-                gestorAplicacion_inmuebles.getInmuebles(Id)
-            except ErrorNoExisteInmueble as owo:
-                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-                return
-    except ErrorStringNumero as owo:
-        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-        return
 
-def buscarCasa(self,Id):
-    try:
-        if (type(Id).equals(int)):
-            try:
-                gestorAplicacion_inmuebles.getCasas(Id)
-            except ErrorNoExisteInmueble as owo:
-                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-                return
-    except ErrorStringNumero as owo:
-        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-        return
-    
-def buscarApartamento(self,Id):
-    try:
-        if (type(Id).equals(int)):
-            try:
-                gestorAplicacion_inmuebles.getApartamentos(Id)
-            except ErrorNoExisteInmueble as owo:
-                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-                return
-    except ErrorStringNumero as owo:
-        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-        return
-
-def crearInmueble():
-    codigo = entryCodigo.get("1.0","end") # Toma el codigo
-    nombre = entryNombre.get("1.0","end") # Toma el nombre
-    descripcicon = entryDescripcion.get("1.0","end") # Toma la descripcion
-    ubicacion = entryUbicacion.get("1.0","end") # Toma la ubicacion
-        #print(codigo)
-        #print(nombre)
-        #print(descripcicon)
-        #print(ubicacion)

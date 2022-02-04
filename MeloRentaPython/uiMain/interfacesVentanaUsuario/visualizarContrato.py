@@ -107,7 +107,7 @@ label3.place(relx=0.4,rely = 0.0, relwidth=0.5, relheight=0.1)
 
 #Identificador
 
-labelIdentificador = Label(master=frame2, text="Escriba el Id del\n Apartamento sobre el que \nquiere ver el \n historial de contratos")
+labelIdentificador = Label(master=frame2, text="Escriba el Id del\n inmueble sobre el que \nquiere ver el \n historial de contratos")
 labelIdentificador.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.2)
 
 entryIdentificador = Text()

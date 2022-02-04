@@ -1,6 +1,17 @@
 from tkinter import *
 from tkinter.messagebox import  *
 
+from tkinter import messagebox
+
+from ManejoErrores.manejoErrores import *
+from ManejoErrores.ErroresExistencia import *
+from ManejoErrores.ErroresFormato import *
+from Bases_de_datos.serializacion import *
+from gestorAplicacion.gestorAplicacion_inmuebles.Apartamento import Apartamento
+from gestorAplicacion.gestorAplicacion_inmuebles.Casa import Casa
+from gestorAplicacion.gestorAplicacion_inmuebles.Inmueble import Inmueble
+
+
 
 
 window = Tk()
@@ -28,9 +39,44 @@ def funcionTomaDeDatos():
     #For que se encarga de recorrer la lista de casas o apartamentos
 
     if(CasaApartamento == "casa"):
-        showinfo(CasaApartamento)
+        id = Entry.get("1.0","end")
+        try:
+            if (type(id).equals(int)):
+                try:
+                    gestorAplicacion_inmuebles.getCasas(id)
+                except ErrorNoExisteInmueble as owo:
+                    messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                    return
+        except ErrorStringNumero as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
+    
     elif(CasaApartamento == "apartamento"):
-        showinfo(CasaApartamento)
+        id = Entry.get("1.0","end")
+        try:
+            if (type(id).equals(int)):
+                try:
+                    gestorAplicacion_inmuebles.getApartamentos(id)
+                except ErrorNoExisteInmueble as owo:
+                    messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                    return
+        except ErrorStringNumero as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
+
+
+
+def buscarInmueble(self,Id):
+    try:
+        if (type(Id).equals(int)):
+            try:
+                gestorAplicacion_inmuebles.getInmuebles(Id)
+            except ErrorNoExisteInmueble as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
+    except ErrorStringNumero as owo:
+        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+        return
 
 
 

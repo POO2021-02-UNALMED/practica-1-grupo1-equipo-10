@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter.messagebox import  *
 
+from gestorAplicacion.gestorAplicacion_inmuebles.Casa import Casa
+
 
 
 window = Tk()
@@ -20,12 +22,13 @@ def funcionSalir():
 def funcionAyuda():
     showinfo("Ayuda", "Nombres de los autores de la aplicación: \n Aura Marcela Arbeláez Aristizabal\n Juan Pablo Rivera Sierra \n Cristian Giraldo Villegas ")
 
-def funcionTomaDeDatos():
+
+def crearCasa():
     identificador = entryIdentificador.get("1.0","end")
     direccion = entryDireccion.get("1.0","end")
     valor = entryValor.get("1.0","end")
     tamano = entryTamano.get("1.0","end")
-
+    Casa(identificador,direccion,valor,tamano)
 
 
 
@@ -147,7 +150,7 @@ entryTamano.place(relx=0.4,rely = 0.78,relwidth=0.5, relheight=0.06)
 frame3 = Frame(master=window, width=400, height=50, borderwidth=1, relief="solid")
 frame3.pack(fill='both')
 
-botonAceptar = Button(master=frame3, text="Aceptar",command=funcionTomaDeDatos)
+botonAceptar = Button(master=frame3, text="Aceptar",command=crearCasa)
 botonAceptar.place(relx=0.3,relwidth=0.2, relheight=0.6)
 botonBorrar = Button(master=frame3, text="Borrar", command=funcionBorrarDatos)
 botonBorrar.place(relx=0.55, relwidth=0.2, relheight=0.6)
