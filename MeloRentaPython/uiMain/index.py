@@ -2,6 +2,14 @@
 from tkinter import *
 from tkinter import messagebox
 from FieldFrame import FieldFrame
+from gestorAplicacion.gestorAplicacion_contratos import *
+from gestorAplicacion.gestorAplicacion_inmuebles import *
+from ManejoErrores.manejoErrores import *
+from ManejoErrores.ErroresExistencia import *
+from ManejoErrores.ErroresFormato import *
+from Bases_de_datos.serializacion import *
+
+
 
 c = 0 # Una ayuda para cambiar imagen de sistema
 d = 0 # Una ayuda para cambiar texto e imagen de integrantes
@@ -303,3 +311,18 @@ lbl4.grid(row=1, column=1)
 #-------------------------------------------------------------------------------------------------------------------
 #Ejecucion de ventana
 window.mainloop()
+
+
+#-------------------------------------------------------------------------------------------------------------------------
+
+
+
+def buscarInmueble(id):
+    try:
+        hay_error = id.aceptar()
+    except ErrorStringNumero as owo:
+        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+            return
+    if hay_error:
+            self.generarTiquete()
+            return
