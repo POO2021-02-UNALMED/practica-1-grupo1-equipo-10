@@ -356,4 +356,3 @@ def buscarApartamento(self,Id):
     except ErrorStringNumero as owo:
         messagebox.showerror(title="Error",message=owo.mensaje_inicio)
         return
-        
