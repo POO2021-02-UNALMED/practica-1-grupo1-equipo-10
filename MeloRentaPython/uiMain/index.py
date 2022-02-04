@@ -88,7 +88,7 @@ description.place(x=5,y=5)
 # Se define el evento 'cambioImagen' para la imagen del sistema del menu de inicio
 def cambioImagen(e):
     global c # Se usa la variable auxiliar previamente definida
-    imgList = ["img\img1.png","img\img2.png", "img\img3.png", "img\img4.png", "img\img5.png"] # Imagenes del sistema
+    imgList = ["uiMain\img\img1.png","uiMain\img\img2.png", "uiMain\img\img3.png", "uiMain\img\img4.png", "uiMain\img\img5.png"] # Imagenes del sistema
     if c > len(imgList)-1: # Verifica si 'c' se pasa del indice del array
         c = 0
     image = PhotoImage(file=imgList[c]) # Se crea una variable que contiene una imagen válida para Tkinter
@@ -99,7 +99,7 @@ def cambioImagen(e):
 
 # Imagenes del sistema
 label = Label(frameP4) # Etiqueta que contendrá una imagen y que será cambiada con eventos
-img = PhotoImage(file="img\img1.png") # Se le asigna una imagen de inicio
+img = PhotoImage(file="uiMain\img\img1.png") # Se le asigna una imagen de inicio
 img = img.subsample(2) # Cambio de tamaño
 label['image'] = img # Asignacion a etiqueta
 label.image = img
@@ -120,16 +120,12 @@ def ingreso():
 
     # Evento que abre una ventana con un mensaje donde habla de la aplicacion
     def funcionAplicacion():
-        messagebox.showinfo("Apliacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
+        messagebox.showinfo("Aplicacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
     
     # Evento que cierra ventana de usuario y abre ventana de inicio
     def funcionSalir():
         window.deiconify() # Vuelve a abrir la ventana de inicio
         usuario.destroy() # Cierra por completo la ventana de usuario
-
-    # Evento que abre una ventana con un mensaje donde muestra los diferentes procesos y consultas
-    def funcionProcesoYConsultas():
-        messagebox.showinfo("Proceso y Consultas", "Funcionalidades: \n Crear inmuebles\n Asociar Inquilino a inmuebles\n Creación de contratos\n Recordar la reparación de inmuebles\n Calendario para pagos del inmueble ")
 
     # Evento que abre una ventana con un mensaje donde muestra los nombres de los integrantes
     def funcionAyuda():
@@ -153,27 +149,52 @@ def ingreso():
         #entryUbicacion.delete("1.0","end") # Borra lo encontrado en el campo de ubicacion
         #entryDescripcion.delete("1.0","end") # Borra lo encontrado en el campo de descripcion
 
+    # Evento que abre una ventana con un mensaje donde muestra los diferentes procesos y consultas
+    def funcionProcesoYConsultas(label):
+        dict = {
+                "Crear casa":"Se piden por consola los parámetros necesarios para \nla creación del inmueble y luego se hace el guardado y notificación de éxito de la operación",
+                "Crear apartamento":"Se piden por consola los parámetros necesarios para \nla creación del inmueble y luego se hace el guardado y notificación de éxito de la operación",
+                "Visualizar listado de inmuebles":"Se muestra en pantalla los inmuebles que se encuentran actualmente registrados",
+                "Buscar un inmueble":"Se busca un inmueble en específico con su identificador",
+                "Visualizar Contratos":"Se le muestra al usuario los contratos actuales de los diferentes inmuebles",
+                "Visualizar Calendario (Notificaciones de Pago y Estado de Inmueble)":"Se pide la identificación del contrato para imprimir \n la lista de pagos desde el inicio del contrato hasta el final del contrato"
+                }
+        
+        for key in dict.keys():
+            if key == label:
+                label1.configure(text=key)
+                label2.configure(text=dict[key])
+                break
+
     # Se crean los menus dentro de 'menubar'
     menu1 = Menu(menubar)
     menu2 = Menu(menubar)
     menu3 = Menu(menubar)
+    menu4 = Menu(menu2)
+    menu5 = Menu(menu2)
 
+    menubar.add_cascade(menu=menu1, label = 'Archivo')
+    menubar.add_cascade(menu = menu2, label = 'Proceso y Consultas')
+    menubar.add_cascade(menu=menu3, label = 'Ayuda')
 
-    menubar.add_cascade(menu=menu1, label = 'Archivo') # Se crea item archivo
-    menubar.add_command(label = 'Proceso y Consultas', command=funcionProcesoYConsultas) # Se crea item de procesos y consultas
-    menubar.add_cascade(menu=menu3, label = 'Ayuda') # Se crea item de ayuda
+    menu1.add_command(label="Aplicacion", command=funcionAplicacion)
+    menu1.add_command(label="Salir", command=funcionSalir)
 
-    menu1.add_command(label="Aplicacion", command=funcionAplicacion) # Se crea item de info de aplicacion
-    menu1.add_command(label="Salir", command=funcionSalir) # Se crea item de salida
-    menu3.add_command(label="Acerca de", command=funcionAyuda) # Se crea item de ayuda
+    menu2.add_cascade(menu=menu4, label="Crear inmueble")
+    menu4.add_command(label="Crear casa", command=lambda:funcionProcesoYConsultas(menu4.entrycget(0,'label')))
+    menu4.add_command(label="Crear apartamento", command=lambda:funcionProcesoYConsultas(menu4.entrycget(1,'label')))
 
+    menu2.add_cascade(menu = menu5, label = "Visualizar Inmuebles creados")
+    menu5.add_command(label="Visualizar listado de inmuebles", command=lambda:funcionProcesoYConsultas(menu5.entrycget(0,'label')))
+    menu5.add_command(label="Buscar un inmueble", command=lambda:funcionProcesoYConsultas(menu5.entrycget(1,'label')))
 
-
+    menu2.add_command(label="Visualizar Contratos", command=lambda:funcionProcesoYConsultas(menu2.entrycget(2,'label')))
+    menu2.add_command(label="Visualizar Calendario (Notificaciones de Pago y Estado de Inmueble)", command=lambda:funcionProcesoYConsultas(menu2.entrycget(3,'label')))
+    menu3.add_command(label="Acerca de", command=funcionAyuda)
 
     usuario['menu'] = menubar # Se le asigna a 'usuario' el menu 'menubar'
 
     #FIN MENU
-
 
     #FRAME1
     frame1 = Frame(master=usuario,height=40)
@@ -185,50 +206,8 @@ def ingreso():
     frame1.pack( fill=X)
     #FIN FRAME1
 
-
     #FRAME2
     frame2 = FieldFrame(usuario,'CRITERIOS',['Codigo','Nombre','Descripcion','Ubicacion'],'VALORES', None, None)
-    #frame2 = Frame(master=usuario, width=400, height=300, borderwidth=1, relief="solid")
-    #frame2.pack(expand=TRUE, fill='both')
-
-
-    #label3 = Label(master=frame2, text="CRITERIO", borderwidth=1, relief="solid")
-    #label3.place(relx=0.1,rely = 0.0, relwidth=0.2, relheight=0.1)
-
-
-    #label3 = Label(master=frame2, text="VALOR", borderwidth=1, relief="solid")
-    #label3.place(relx=0.4,rely = 0.0, relwidth=0.5, relheight=0.1)
-
-    #labelCodigo = Label(master=frame2, text="Codigo")
-    #labelCodigo.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.1)
-
-    #entryCodigo = Text(master=frame2)
-    #entryCodigo.place(relx=0.4,rely = 0.220,relwidth=0.5, relheight=0.06)
-
-
-    #labelNombre = Label(master=frame2, text="Nombre")
-    #labelNombre.place(relx=0.1,rely = 0.4,relwidth=0.2, relheight=0.1)
-
-
-    #entryNombre = Text(master=frame2)
-    #entryNombre.place(relx=0.4,rely = 0.420,relwidth=0.5, relheight=0.06)
-
-    #labelDescripcion = Label(master=frame2, text="Descripcion")
-    #labelDescripcion.place(relx=0.1,rely = 0.6,relwidth=0.2, relheight=0.1)
-
-
-    #entryDescripcion = Text(master=frame2)
-    #entryDescripcion.place(relx=0.4,rely = 0.620,relwidth=0.5, relheight=0.06)
-
-    #labelUbicacion = Label(master=frame2, text="Ubicacion")
-    #labelUbicacion.place(relx=0.1,rely = 0.8,relwidth=0.2, relheight=0.1)
-
-
-    #entryUbicacion = Text(master=frame2)
-    #entryUbicacion.place(relx=0.4,rely = 0.820,relwidth=0.5, relheight=0.06)
-
-    #FIN FRAME2
-
 
     #FRAME3
     frame3 = Frame(master=usuario, width=400, height=50, borderwidth=1, relief="solid")
@@ -251,15 +230,15 @@ def cambioHojaVida(e):
     integrantes = [
                     {
                         'hojaVida' : "Aura Marcela Arbeláez Aristizabal:\ntengo 21 años y estudio ingenieria de\nsistemas en la universidad nacional. Trabajopaseando perros por mi casa. Me gustan los\nperros, comer hamburguesas, los videojuegos y echar chisme.",
-                        'imagen' : [["img\Aura1.png","img\Aura2.png"],["img\Aura3.png","img\Aura4.png"]]
+                        'imagen' : [["uiMain\img\Aura1.png","uiMain\img\Aura2.png"],["uiMain\img\Aura3.png","uiMain\img\Aura4.png"]]
                     },
                     {
                         'hojaVida' : "Cristian Giraldo Villegas:\n21 años. Estudiante perteneciente a la\ncarrera Ing. Sistemas e Informatica de la\nUniversidad Nacional de Colombia. Le gustan los comics japoneses y Java.",
-                        'imagen' : [["img\Cristian1.png","img\Cristian2.png"],["img\Cristian3.png","img\Cristian4.png"]]
+                        'imagen' : [["uiMain\img\Cristian1.png","uiMain\img\Cristian2.png"],["uiMain\img\Cristian3.png","uiMain\img\Cristian4.png"]]
                     },
                     {
                         'hojaVida' : "Juan Pablo Rivera Sierra:\n21 años. Estudiante de octavo semestre en laUniversidad Nacional de Colombia. Trabaja\ncomo asistente de programacion en Urcube. Legustan los videojuegos y Python.",
-                        'imagen' : [["img\Juan1.png","img\Juan2.png"],["img\Juan3.png","img\Juan4.png"]]
+                        'imagen' : [["uiMain\img\Juan1.png","uiMain\img\Juan2.png"],["uiMain\img\Juan3.png","uiMain\img\Juan4.png"]]
                     }
                 ]
     if d > len(integrantes)-1:
@@ -298,25 +277,25 @@ hojaVida.place(x=5,y=3)
 
 # Imagen 1
 lbl1 = Label(frameP6)
-img1 = PhotoImage(file="img\Juan1.png")
+img1 = PhotoImage(file="uiMain\img\Juan1.png")
 img1 = img1.subsample(9)
 lbl1['image'] = img1
 lbl1.grid(row=0, column=0)
 # Imagen 2
 lbl2 = Label(frameP6)
-img2 = PhotoImage(file="img\Juan2.png")
+img2 = PhotoImage(file="uiMain\img\Juan2.png")
 img2 = img2.subsample(9)
 lbl2['image'] = img2
 lbl2.grid(row=0, column=1)
 # Imagen 3
 lbl3 = Label(frameP6)
-img3 = PhotoImage(file="img\Juan3.png")
+img3 = PhotoImage(file="uiMain\img\Juan3.png")
 img3 = img3.subsample(9)
 lbl3['image'] = img3
 lbl3.grid(row=1, column=0)
 # Imagen 4
 lbl4 = Label(frameP6)
-img4 = PhotoImage(file="img\Juan4.png")
+img4 = PhotoImage(file="uiMain\img\Juan4.png")
 img4 = img4.subsample(9)
 lbl4['image'] = img4
 lbl4.grid(row=1, column=1)
