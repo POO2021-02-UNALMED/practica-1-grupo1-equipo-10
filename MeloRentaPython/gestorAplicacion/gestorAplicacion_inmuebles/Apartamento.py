@@ -1,7 +1,6 @@
 import Inmueble
 import pickle
 class Apartamento(Inmueble):
-    apartamentos = []
     lista_apartamentos = []
     # Constructor
 
@@ -18,11 +17,11 @@ class Apartamento(Inmueble):
     #Getters y Setters
     @classmethod
     def getapartamentos(cls):
-        return cls.apartamentos
+        return cls.lista_apartamentos
 
     @classmethod
     def setapartamentos(cls, apartamentos):
-        cls.apartamentos = apartamentos
+        cls.lista_apartamentos = apartamentos
 
     def getnumeroDePiso(self):
         return self._numeroDePiso
@@ -34,7 +33,7 @@ class Apartamento(Inmueble):
     #Fin Getters y Setters
     @classmethod
     def adicionarapartamento(cls, apartamento):
-        cls.apartamentos.append(apartamento)
+        cls.lista_apartamentos.append(apartamento)
 
     def mostrarInmueble(self):
         if(self.contrato != None):

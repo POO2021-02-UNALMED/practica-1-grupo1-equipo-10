@@ -2,8 +2,8 @@
 from tkinter import *
 from tkinter import messagebox
 from FieldFrame import FieldFrame
-from gestorAplicacion.gestorAplicacion_contratos import *
-from gestorAplicacion.gestorAplicacion_inmuebles import *
+#from gestorAplicacion.gestorAplicacion_contratos import *
+#from gestorAplicacion.gestorAplicacion_inmuebles import *
 from ManejoErrores.manejoErrores import *
 from ManejoErrores.ErroresExistencia import *
 from ManejoErrores.ErroresFormato import *
@@ -314,15 +314,46 @@ window.mainloop()
 
 
 #-------------------------------------------------------------------------------------------------------------------------
+misContratos= pickle.load(contratosApertura)
+misFacturas= pickle.load(facturasApertura)
+misInquilinos =pickle.load(inquilinosApertura)
+misApartamentos =pickle.load(apartamentosApertura)
+misCasas =pickle.load(casasApertura)
+misInmuebles =pickle.load(inmueblesApertura)
 
-
-
-def buscarInmueble(id):
+def buscarInmueble(self,Id):
     try:
-        hay_error = id.aceptar()
+        if (type(Id).equals(int)):
+            try:
+                gestorAplicacion_inmuebles.getInmuebles(Id)
+            except ErrorNoExisteInmueble as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
     except ErrorStringNumero as owo:
         messagebox.showerror(title="Error",message=owo.mensaje_inicio)
-            return
-    if hay_error:
-            self.generarTiquete()
-            return
+        return
+
+def buscarCasa(self,Id):
+    try:
+        if (type(Id).equals(int)):
+            try:
+                gestorAplicacion_inmuebles.getCasas(Id)
+            except ErrorNoExisteInmueble as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
+    except ErrorStringNumero as owo:
+        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+        return
+    
+def buscarApartamento(self,Id):
+    try:
+        if (type(Id).equals(int)):
+            try:
+                gestorAplicacion_inmuebles.getApartamentos(Id)
+            except ErrorNoExisteInmueble as owo:
+                messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+                return
+    except ErrorStringNumero as owo:
+        messagebox.showerror(title="Error",message=owo.mensaje_inicio)
+        return
+        

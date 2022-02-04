@@ -1,7 +1,6 @@
 import Inmueble
 import pickle
 class Casa(Inmueble):
-    casas = []
     lista_casas=[]
     #Constructor
 
@@ -17,15 +16,15 @@ class Casa(Inmueble):
     #Getters y Setters
     @classmethod
     def getCasas(cls):
-        return cls.casas
+        return cls.lista_casas
 
     @classmethod
     def setCasas(cls, casas):
-        cls.casas = casas
+        cls.lista_casas = casas
 
     @classmethod
     def adicionarCasa(cls, casa):
-        cls.casas.append(casa)
+        cls.lista_casas.append(casa)
 
     def getareaAireLibre(self):
         return self._areaAireLibre

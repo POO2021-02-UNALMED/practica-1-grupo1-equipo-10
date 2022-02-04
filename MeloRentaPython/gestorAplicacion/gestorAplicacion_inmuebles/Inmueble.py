@@ -2,7 +2,6 @@ from gestorAplicacion_contratos.Contrato import Contrato
 import pickle
 
 class Inmueble:
-    inmuebles = []
     lista_inmuebles =[]
     #Constructor
 
@@ -28,7 +27,7 @@ class Inmueble:
     #Getters y Setters
     @classmethod
     def getInmuebles(cls):
-        return cls.inmuebles
+        return cls.lista_inmuebles
 
     def getId(self):
         return self._id
@@ -72,7 +71,7 @@ class Inmueble:
     #fin getters
     @classmethod
     def setInmuebles(cls, inmuebles):
-        cls.inmuebles = inmuebles
+        cls.lista_inmuebles = inmuebles
 
     def setId(self, id):
         self._id = id
@@ -116,7 +115,7 @@ class Inmueble:
     #Fin Getters y Setters
     @classmethod
     def adicionarInmueble(cls, inmueble):
-        cls.inmuebles.append(inmueble)
+        cls.lista_inmuebles.append(inmueble)
 
 
     def historialContratos(self):
