@@ -12,7 +12,7 @@ window.option_add('*tearOff',FALSE)
 menubar = Menu(window)
 
 def funcionAplicacion():
-    showinfo("Aplicacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
+    showinfo("Apliacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
 
 def funcionSalir():
     showinfo("Salir", "retorna a la Ventana de Inicio del programa")
@@ -21,18 +21,22 @@ def funcionAyuda():
     showinfo("Ayuda", "Nombres de los autores de la aplicación: \n Aura Marcela Arbeláez Aristizabal\n Juan Pablo Rivera Sierra \n Cristian Giraldo Villegas ")
 
 def funcionTomaDeDatos():
-    identificador = entryIdentificador.get("1.0","end")
+    CasaApartamento = entryCasaApartamento.get("1.0","end")
     a = "12"
-    identificador = identificador + a
+    CasaApartamento = CasaApartamento + a
 
-    #For que se encarga de recorrer la lista del calendario de pago
-    showinfo("Calendario de pagos", identificador)
+    #For que se encarga de recorrer la lista de casas o apartamentos
+
+    if(CasaApartamento == "casa"):
+        showinfo(CasaApartamento)
+    elif(CasaApartamento == "apartamento"):
+        showinfo(CasaApartamento)
+
 
 
 
 def funcionBorrarDatos():
-    entryIdentificador.delete("1.0","end")
-
+    entryCasaApartamento.delete("1.0","end")
 
 
 #Menu
@@ -73,11 +77,10 @@ window['menu'] = menubar
 
 
 
-
 #FRAME1
 frame1 = Frame(master=window,height=40)
-label1 = Label(master=frame1,text="Visualizar calendario (Notificacion de pago y Estado de inmueble) ", borderwidth=1, relief="solid")
-label2 = Label(master=frame1, text="Se pide la identificación del contrato para imprimir \n la lista de pagos desde el inicio del contrato hasta el final del contrato", borderwidth=1, relief="solid")
+label1 = Label(master=frame1,text="Visualizar listado de inmuebles", borderwidth=1, relief="solid")
+label2 = Label(master=frame1, text="Se pide elegir entre visualizar el \nlistado de inmuebles o buscar un solo inmueble", borderwidth=1, relief="solid")
 
 label1.pack(side=TOP, ipadx = 15, ipady=10, pady = 5)
 label2.pack(side=TOP, ipadx = 130, ipady=10, pady = 5)
@@ -101,11 +104,11 @@ label3.place(relx=0.4,rely = 0.0, relwidth=0.5, relheight=0.1)
 
 #Identificador
 
-labelIdentificador = Label(master=frame2, text="Numero de identificacion\n del contrato al \nque se lerevisará\n el calendario de pago")
-labelIdentificador.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.2)
+labelCasaApartamento = Label(master=frame2, text="Desea buscar casas\n o apartamentos")
+labelCasaApartamento.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.2)
 
-entryIdentificador = Text()
-entryIdentificador.place(relx=0.4,rely = 0.395,relwidth=0.5, relheight=0.1)
+entryCasaApartamento = Text()
+entryCasaApartamento.place(relx=0.4,rely = 0.41,relwidth=0.5, relheight=0.07)
 
 
 
@@ -124,5 +127,3 @@ botonBorrar.place(relx=0.55, relwidth=0.2, relheight=0.6)
 
 
 window.mainloop()
-
-

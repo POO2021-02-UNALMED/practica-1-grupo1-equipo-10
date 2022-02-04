@@ -12,7 +12,7 @@ window.option_add('*tearOff',FALSE)
 menubar = Menu(window)
 
 def funcionAplicacion():
-    showinfo("Aplicacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
+    showinfo("Apliacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
 
 def funcionSalir():
     showinfo("Salir", "retorna a la Ventana de Inicio del programa")
@@ -22,16 +22,18 @@ def funcionAyuda():
 
 def funcionTomaDeDatos():
     identificador = entryIdentificador.get("1.0","end")
-    a = "12"
-    identificador = identificador + a
+    direccion = entryDireccion.get("1.0","end")
+    valor = entryValor.get("1.0","end")
+    tamano = entryTamano.get("1.0","end")
 
-    #For que se encarga de recorrer la lista del calendario de pago
-    showinfo("Calendario de pagos", identificador)
 
 
 
 def funcionBorrarDatos():
     entryIdentificador.delete("1.0","end")
+    entryDireccion.delete("1.0","end")
+    entryValor.delete("1.0","end")
+    entryTamano.delete("1.0","end")
 
 
 
@@ -76,11 +78,11 @@ window['menu'] = menubar
 
 #FRAME1
 frame1 = Frame(master=window,height=40)
-label1 = Label(master=frame1,text="Visualizar calendario (Notificacion de pago y Estado de inmueble) ", borderwidth=1, relief="solid")
-label2 = Label(master=frame1, text="Se pide la identificación del contrato para imprimir \n la lista de pagos desde el inicio del contrato hasta el final del contrato", borderwidth=1, relief="solid")
+label1 = Label(master=frame1,text="Crear casa", borderwidth=1, relief="solid")
+label2 = Label(master=frame1, text="Se piden por consola los parámetros necesarios para \nla creación de la casa y luego se hace el guardado y notificación de éxito de la operación", borderwidth=1, relief="solid")
 
-label1.pack(side=TOP, ipadx = 15, ipady=10, pady = 5)
-label2.pack(side=TOP, ipadx = 130, ipady=10, pady = 5)
+label1.pack(side=TOP, ipadx = 15, ipady=10, pady = 2)
+label2.pack(side=TOP, ipadx = 130, ipady=10, pady = 2)
 frame1.pack( fill=X)
 #FIN FRAME1
 
@@ -93,19 +95,49 @@ frame2.pack(expand=TRUE, fill='both')
 
 
 label3 = Label(master=frame2, text="CRITERIO", borderwidth=1, relief="solid")
-label3.place(relx=0.1,rely = 0.0, relwidth=0.2, relheight=0.1)
+label3.place(relx=0.1,rely = 0.1, relwidth=0.2, relheight=0.1)
 
 
 label3 = Label(master=frame2, text="VALOR", borderwidth=1, relief="solid")
-label3.place(relx=0.4,rely = 0.0, relwidth=0.5, relheight=0.1)
+label3.place(relx=0.4,rely = 0.1, relwidth=0.5, relheight=0.1)
 
 #Identificador
 
-labelIdentificador = Label(master=frame2, text="Numero de identificacion\n del contrato al \nque se lerevisará\n el calendario de pago")
-labelIdentificador.place(relx=0.1,rely = 0.2,relwidth=0.2, relheight=0.2)
+labelIdentificador = Label(master=frame2, text="Identificador")
+labelIdentificador.place(relx=0.1,rely = 0.3,relwidth=0.2, relheight=0.1)
 
 entryIdentificador = Text()
-entryIdentificador.place(relx=0.4,rely = 0.395,relwidth=0.5, relheight=0.1)
+entryIdentificador.place(relx=0.4,rely = 0.45,relwidth=0.5, relheight=0.06)
+
+#Direccion
+
+labelDireccion= Label(master=frame2, text="Direccion")
+labelDireccion.place(relx=0.1,rely = 0.48,relwidth=0.2, relheight=0.1)
+
+entryDireccion = Text()
+entryDireccion.place(relx=0.4,rely = 0.55,relwidth=0.5, relheight=0.06)
+
+#Valor
+
+labelValor = Label(master=frame2, text="Valor del arriendo")
+labelValor.place(relx=0.1,rely = 0.65,relwidth=0.2, relheight=0.1)
+
+entryValor = Text()
+entryValor.place(relx=0.4,rely = 0.68,relwidth=0.5, relheight=0.06)
+
+
+#Tamano
+
+labelTamano = Label(master=frame2, text="Tamano")
+labelTamano.place(relx=0.1,rely = 0.85,relwidth=0.2, relheight=0.1)
+
+entryTamano = Text()
+entryTamano.place(relx=0.4,rely = 0.78,relwidth=0.5, relheight=0.06)
+
+
+
+#fin
+
 
 
 
