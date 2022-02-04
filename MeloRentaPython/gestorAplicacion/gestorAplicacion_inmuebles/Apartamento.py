@@ -12,6 +12,12 @@ class Apartamento(Inmueble):
                          contrato, estadoArriendoInmueble)
         self._numeroDePiso = numeroDePiso
         Apartamento.lista_apartamentos.append(self)
+    def __init__(self, id, nombre, descripcion, ubicacion):
+            self._id = id
+            self.nombre = nombre
+            self.descripcion= descripcion
+            self.ubicacion = ubicacion
+            Apartamento.lista_apartamentos.append(self)
         
 
     #Getters y Setters

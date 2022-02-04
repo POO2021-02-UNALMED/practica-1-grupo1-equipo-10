@@ -12,7 +12,12 @@ class Casa(Inmueble):
                          contrato, estadoArriendoInmueble)
         self._areaAireLibre = areaAireLibre
         Casa.lista_casas.append(self)
-
+    def __init__(self, id, nombre, descripcion, ubicacion):
+            self._id = id
+            self.nombre = nombre
+            self.descripcion= descripcion
+            self.ubicacion = ubicacion
+            Casa.lista_casas.append(self)
     #Getters y Setters
     @classmethod
     def getCasas(cls):

@@ -22,8 +22,12 @@ class Inmueble:
         self._contrato = contrato
         self._estadoArriendoInmueble = estadoArriendoInmueble
         Inmueble.lista_inmuebles.append(self)
-
-
+        def __init__(self, id, nombre, descripcion, ubicacion):
+            self._id = id
+            self.nombre = nombre
+            self.descripcion= descripcion
+            self.ubicacion = ubicacion
+            Inmueble.lista_inmuebles.append(self)
     #Getters y Setters
     @classmethod
     def getInmuebles(cls):

@@ -138,7 +138,7 @@ def ingreso():
     # Evento que abre una ventana con un mensaje donde muestra los nombres de los integrantes
     def funcionAyuda():
         messagebox.showinfo("Ayuda", "Nombres de los autores de la aplicación: \n Aura Marcela Arbeláez Aristizabal\n Juan Pablo Rivera Sierra \n Cristian Giraldo Villegas ")
-
+   
     # Toma los datos ingresados por el usuario
     #def funcionTomaDeDatos():
         #codigo = entryCodigo.get("1.0","end") # Toma el codigo
@@ -321,6 +321,8 @@ misApartamentos =pickle.load(apartamentosApertura)
 misCasas =pickle.load(casasApertura)
 misInmuebles =pickle.load(inmueblesApertura)
 
+
+
 def buscarInmueble(self,Id):
     try:
         if (type(Id).equals(int)):
@@ -356,3 +358,13 @@ def buscarApartamento(self,Id):
     except ErrorStringNumero as owo:
         messagebox.showerror(title="Error",message=owo.mensaje_inicio)
         return
+
+def crearInmueble():
+    codigo = entryCodigo.get("1.0","end") # Toma el codigo
+    nombre = entryNombre.get("1.0","end") # Toma el nombre
+    descripcicon = entryDescripcion.get("1.0","end") # Toma la descripcion
+    ubicacion = entryUbicacion.get("1.0","end") # Toma la ubicacion
+        #print(codigo)
+        #print(nombre)
+        #print(descripcicon)
+        #print(ubicacion)
