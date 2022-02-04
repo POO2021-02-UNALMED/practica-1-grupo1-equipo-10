@@ -12,7 +12,7 @@ window.option_add('*tearOff',FALSE)
 menubar = Menu(window)
 
 def funcionAplicacion():
-    showinfo("Apliacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
+    showinfo("Aplicacion", "MeloRenta es un sistema gestor de inmuebles que se encarga de administrar inmuebles para los estudiantes. Se encarga de conectar arrendador a estudiante y facilitar el proceso de arrendamiento")
 
 def funcionSalir():
     showinfo("Salir", "retorna a la Ventana de Inicio del programa")
